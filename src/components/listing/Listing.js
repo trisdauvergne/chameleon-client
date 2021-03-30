@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import './listing.css';
+
 const Listing = ({ listing }) => {
     const [ user, setUser ] = useState('');
 
@@ -15,7 +17,7 @@ const Listing = ({ listing }) => {
 
     return (
         <article className="listing">
-            <img src={`http://localhost:3001/uploads/${listing.pictures[0]}`} alt={listing.title}/>
+            <img className="listing__img" src={`http://localhost:3001/uploads/${listing.pictures[0]}`} alt={listing.title}/>
             <h1>{listing.title}</h1>
             <p>{listing.description}</p>
             <p>{listing.attributes.price} kr</p>
