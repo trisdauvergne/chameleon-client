@@ -8,7 +8,6 @@ const Feed = () => {
         try {
           const data = await fetch(`${host}/listings`);
           const listingsData = await data.json();
-          console.log(listingsData);
           setListings(listingsData);
         } catch (err) {
           console.log(err);

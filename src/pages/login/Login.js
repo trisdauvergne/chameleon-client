@@ -1,6 +1,6 @@
 import { host } from '../../config';
 import { useState } from 'react';
-import {  Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 const Login = () => {
 
@@ -15,8 +15,10 @@ const Login = () => {
         { 
             body: JSON.stringify({username}), 
             method: 'POST', 
-            headers: { 'Content-Type': 'application/json' } 
-        })
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+        });
+
         setUsername('');
         setPassword('');
 

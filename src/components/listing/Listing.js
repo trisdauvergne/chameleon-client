@@ -9,7 +9,6 @@ const Listing = ({ listing }) => {
     const getUser = async () => {
         const userData = await fetch(`${host}/users/${listing.ownerId}`);
         const userInfo = await userData.json();
-        console.log(userInfo);
         setUser(userInfo);
     }
 
