@@ -1,10 +1,13 @@
 import { host } from '../../config';
 import { useState } from 'react';
+import {  Redirect } from 'react-router-dom';
 
 const Login = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [badUsername, setBadUsername] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -16,8 +19,21 @@ const Login = () => {
         })
         setUsername('');
         setPassword('');
-        console.log(response);
+
+        if (response.status === 204) {
+            setLoggedIn(true);
+            return;
+        }
+
+        if (response.status === 401) {
+            setBadUsername(true);
+            return;
+        }
     };
+
+    if(loggedIn) {
+        return <Redirect to="/"/>
+    }
 
     return (
         <>
@@ -30,6 +46,7 @@ const Login = () => {
                 </label>
                 <button type="submit">Login</button>
             </form>
+            {badUsername && <h3>Please enter a valid username</h3>}
         </>
     );
 }
