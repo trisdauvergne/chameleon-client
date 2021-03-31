@@ -7,8 +7,9 @@ const Listing = ({ listing }) => {
     const [ user, setUser ] = useState('');
 
     const getUser = async () => {
-        const userData = await fetch(`${host}/users/${listing.ownerId}`);
+        const userData = await fetch(`${host}/users/owner/${listing.ownerId}`);
         const userInfo = await userData.json();
+        console.log(userInfo);
         setUser(userInfo);
     }
 
@@ -24,6 +25,7 @@ const Listing = ({ listing }) => {
             <p>{listing.attributes.price} kr</p>
             <p>{listing.attributes.category}</p>
             <p>{user.firstName}</p>
+            <p>Rating: {user.rating}</p>
             <Link to={`/booking/${listing._id}`}>
                 <button>Request to rent</button>
             </Link>

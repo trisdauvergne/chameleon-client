@@ -1,0 +1,7 @@
+.active-listing {
+  display: flex;
+}
+
+.active-listing__img {
+  width: 150px;
+}
