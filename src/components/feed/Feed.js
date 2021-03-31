@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import Listing from '../listing/Listing';
+import { host } from '../../config';
 
 const Feed = () => {
     const [listings, setListings] = useState([]);
     const getListings = async () => {
         try {
-          const data = await fetch('http://localhost:3001/listings');
+          const data = await fetch(`${host}/listings`);
           const listingsData = await data.json();
           console.log(listingsData);
           setListings(listingsData);

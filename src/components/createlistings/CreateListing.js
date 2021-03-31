@@ -1,8 +1,9 @@
+import { host } from '../../config';
 const CreateListing = () => {
     return (
     <>
     <h1>Test Form</h1>
-        <form method="POST" action="http://localhost:3001/listings" enctype="multipart/form-data">
+        <form method="POST" action={`${host}/listings`} enctype="multipart/form-data">
             <label>
                 Upload image
                 <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg"/>
@@ -68,15 +69,6 @@ const CreateListing = () => {
 
         <button type="submit">Add post</button>
         </form>
-        {/* <div>test</div>
-        <h2>Posts</h2>
-        {listings.map(listing => (
-        <div key={listing._id}>
-        <p>{listing._id}</p>
-        <p>{listing.name}</p>
-        <img src={`http://localhost:3001/uploads/${listing.imageName}`}/>
-        </div> */}
-        ))}
     </>
     );
 }
