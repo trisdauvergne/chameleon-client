@@ -10,7 +10,6 @@ const UpdateListingForm = ({listingId}) => {
       const result = await fetch(`${host}/listings/${listingId}`);
       const listingData = await result.json();
       setListing(listingData);
-      console.log(listingData);
     }; 
 
     const deleteListing = async () => {

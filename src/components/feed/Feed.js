@@ -6,9 +6,11 @@ const Feed = () => {
     const [listings, setListings] = useState([]);
     const getListings = async () => {
         try {
+          const ownerId = document.cookie.split('=')[1];
           const data = await fetch(`${host}/listings`);
           const listingsData = await data.json();
-          setListings(listingsData);
+          const filteredListings = listingsData.filter(listing => listing.ownerId !== ownerId);
+          setListings(filteredListings);
         } catch (err) {
           console.log(err);
         }

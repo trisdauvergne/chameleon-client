@@ -32,7 +32,6 @@ const ActiveListing = ({ listing }) => {
     }
     const result = await fetch(`${host}/users/${pendingBookings[0].renterId}`);
     const data = await result.json();
-    console.log(data);
     setRenter(data);
   };
 
@@ -43,6 +42,28 @@ const ActiveListing = ({ listing }) => {
   useEffect(() => {
     getRenter();
   }, [pendingBookings]);
+
+  const approveRequest = async () => {
+    const approved = {
+      ...pendingBookings[0],
+      accepted: true
+    }
+    await fetch(`${host}/bookings/${pendingBookings[0]._id}`, 
+    {
+      method: 'PUT', 
+      body: JSON.stringify(approved),
+      headers: { 'Content-Type': 'application/json' }
+    });
+    setModalOpen(false);
+    history.go(0);
+    // window.location.reload(false);
+  }
+
+  const rejectRequest = async () => {
+    await fetch (`${host}/bookings/${pendingBookings[0]._id}`, {method: 'DELETE'});
+    setModalOpen(false);
+    history.go(0);
+  }
 
   return (
     <>
@@ -78,6 +99,8 @@ const ActiveListing = ({ listing }) => {
             <p>{pendingBookings[0].bookingFrom}</p>
             <p>{pendingBookings[0].bookingTo}</p>
           </div>
+          <button onClick={approveRequest}>Approve</button>
+          <button onClick={rejectRequest}>Reject</button>
         </article>
       </Modal>}
     </>
