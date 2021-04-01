@@ -6,9 +6,9 @@ const Booking = ({ match }) => {
   const [ ownerId, setOwnerId ] = useState('');
 
   const getOwner = async () => {
-      const ownerData = await fetch(`${host}/listings/${match.params.listingId}`);
-      const ownerInfo = await ownerData.json();
-      setOwnerId(ownerInfo);
+      const listingData = await fetch(`${host}/listings/${match.params.listingId}`);
+      const listingInfo = await listingData.json();
+      setOwnerId(listingInfo.ownerId);
   }
 
   useEffect(() => {

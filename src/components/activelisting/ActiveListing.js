@@ -1,6 +1,7 @@
 import { host } from '../../config';
 import './activelisting.css';
 import { useState, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 const ActiveListing = ({ listing }) => {
   // const [bookingInfo, setBookingInfo] = useState('');
@@ -9,6 +10,13 @@ const ActiveListing = ({ listing }) => {
   //   const data = await fetch(`${host}`);
   //   const activeData = await data.json();
   // }
+
+  let history = useHistory();
+
+  const deleteListing = async () => {
+    await fetch(`${host}/listings/${listing._id}`, { method: 'delete' });
+    history.push('/deals');
+  }
     
     return (
       <article className="active-listing">
@@ -19,6 +27,10 @@ const ActiveListing = ({ listing }) => {
           <h3>{listing.title}</h3>
           <p>{listing.description}</p>
           <p>{listing.attributes.price} SEK</p>
+          <Link to={`/updatelisting/${listing._id}`}>
+            <button>Update</button>
+          </Link>
+          <button onClick={deleteListing}>Delete</button>
         </div>
       </article>
     )
