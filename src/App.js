@@ -4,9 +4,8 @@ import Home from './pages/home/Home';
 import Listing from './pages/listing/Listing';
 import Booking from './pages/booking/Booking';
 import Deals from './pages/deals/Deals';
-import CreateListing from './components/createlistings/CreateListing';
 import UpdateListing from './pages/updatelisting/UpdateListing';
-import BookingForm from './components/bookingform/BookingForm';
+import Navbar from './components/navbar/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -23,6 +22,7 @@ function App() {
           <Route path="/deals" component={Deals}/>
           <Route path="/updatelisting/:listingid" component={UpdateListing} />
         </Switch>
+        <Navbar />
       </Router>
   );
 }
