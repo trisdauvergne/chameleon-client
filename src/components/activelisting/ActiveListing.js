@@ -2,10 +2,13 @@ import { host } from '../../config';
 import './activelisting.css';
 import { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import Modal from '../modal/Modal.js';
 
 const ActiveListing = ({ listing }) => {
   const [acceptedBookings, setAcceptedBookings] = useState([]);
-  const [pendingBookings, setPendingBookings] = useState('');
+  const [pendingBookings, setPendingBookings] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [renter, setRenter] = useState(null);
 
   let history = useHistory();
 
@@ -23,11 +26,26 @@ const ActiveListing = ({ listing }) => {
     setPendingBookings(pending);
   };
 
+  const getRenter = async () => {
+    if (pendingBookings.length === 0) {
+      return;
+    }
+    const result = await fetch(`${host}/users/${pendingBookings[0].renterId}`);
+    const data = await result.json();
+    console.log(data);
+    setRenter(data);
+  };
+
   useEffect(() => {
     getBookings();
   }, []);
     
+  useEffect(() => {
+    getRenter();
+  }, [pendingBookings]);
+
   return (
+    <>
     <article className={`active-listing ${pendingBookings.length !== 0 && 'active-listing--pending'}`}>
       <div className="active-listing__img-div">
         <img className="active-listing__img" src={`${host}/uploads/${listing.pictures[0]}`} alt={listing.title}/>
@@ -44,10 +62,25 @@ const ActiveListing = ({ listing }) => {
           <ul>
             {acceptedBookings.map(listing => <li key={listing._id}>From: {listing.bookingFrom}  To: {listing.bookingTo} </li>)}
           </ul>
-          {pendingBookings.length !== 0 && <button>Review request</button>}
+          {pendingBookings.length !== 0 && <button onClick={() => setModalOpen(true)}>Review request</button>}
         </div>
       </div>
     </article>
+    {renter !== null && 
+        <Modal open={modalOpen} onClose={()=> setModalOpen(false)}>
+        <article className="request-review">
+          <div className="request-review__img">
+            <img src="https://i.pravatar.cc/150"/>
+          </div>
+          <div className="request-review__txt">
+            <h3>{renter.user.firstName}</h3>
+            <h2>Rating: {renter.rating}</h2>
+            <p>{pendingBookings[0].bookingFrom}</p>
+            <p>{pendingBookings[0].bookingTo}</p>
+          </div>
+        </article>
+      </Modal>}
+    </>
   )
 }
   
