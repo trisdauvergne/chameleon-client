@@ -19,7 +19,6 @@ const Completed = () => {
   return (
     <div>
       {completedBookings.map(booking => <CompletedBooking key={booking._id} booking={booking}/>)}
-      <h1>test</h1>
     </div>
   )
 }

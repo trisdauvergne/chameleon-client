@@ -1,6 +1,10 @@
 import { useState } from 'react';
-const ReviewModal = ({ dealPartner, booking }) => {
-    const [emptyRating, setEmptyRating] = useState('');
+import { useHistory } from 'react-router-dom';
+import { host } from '../../config';
+
+const ReviewModal = ({ dealPartner, booking, setModal }) => {
+    let history = useHistory();
+    const authorId = document.cookie.split('=')[1];
     const [review, setReview] = useState(
         {
             rating: '',
@@ -8,13 +12,24 @@ const ReviewModal = ({ dealPartner, booking }) => {
         }
     );
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
       const reviewObject = {
-        
+        ...review,
+        targetId: dealPartner.user._id,
+        authorId,
+        bookingId: booking._id,
+        date: Date.now()
       }
+      await fetch(`${host}/reviews`, { method: 'POST', body: JSON.stringify(reviewObject), headers: { 'Content-Type': 'application/json' } });
+      setReview({
+        rating: '',
+        feedback: ''
+      })
+      setModal(false);
+      history.go(0);
     }
-  
+
   return (
     <>
       <h1>Review {dealPartner.user.firstName}</h1>

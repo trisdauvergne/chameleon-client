@@ -20,7 +20,7 @@ const ActiveListing = ({ listing }) => {
   const getBookings = async () => {
     const result = await fetch(`${host}/bookings/${listing._id}`);
     const data = await result.json();
-    const accepted = data.filter(booking => booking.accepted);
+    const accepted = data.filter(booking => booking.accepted && !booking.completed);
     const pending = data.filter(booking => !booking.accepted);
     setAcceptedBookings(accepted);
     setPendingBookings(pending);
@@ -65,6 +65,11 @@ const ActiveListing = ({ listing }) => {
     history.go(0);
   }
 
+  const itemReturned = async (id) => {
+    await fetch(`${host}/bookings/completed/${id}`, {method: 'PUT'});
+    history.go(0);
+  }
+
   return (
     <>
     <article className={`active-listing ${pendingBookings.length !== 0 && 'active-listing--pending'}`}>
@@ -81,7 +86,7 @@ const ActiveListing = ({ listing }) => {
         <button onClick={deleteListing}>Delete</button>
         <div>
           <ul>
-            {acceptedBookings.map(listing => <li key={listing._id}>From: {listing.bookingFrom}  To: {listing.bookingTo} </li>)}
+            {acceptedBookings.map(listing => <li key={listing._id}>From: {listing.bookingFrom}  To: {listing.bookingTo} <button onClick={() =>itemReturned(listing._id)}>Item returned</button></li>)}
           </ul>
           {pendingBookings.length !== 0 && <button onClick={() => setModalOpen(true)}>Review request</button>}
         </div>

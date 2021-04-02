@@ -44,14 +44,13 @@ const CompletedBooking = ({ booking }) => {
         <div>
           <p>{listing.title}</p>
           {userId === listing.ownerId && <p>You rented it out to {dealPartner.user.firstName}</p>}
-          {userId === listing.ownerId && booking.ownerReviewed === false && <button onClick={() => setModalOpen(true)}>LEAVE REVIEW NOW</button>}
+          {userId === listing.ownerId && booking.renterHasBeenReviewed === false && <button onClick={() => setModalOpen(true)}>LEAVE REVIEW NOW</button>}
           {userId !== listing.ownerId && <p>You rented it from {dealPartner.user.firstName}</p>}
-          {userId !== listing.ownerId && booking.renterReviewed === false && <button onClick={() => setModalOpen(true)}>LEAVE REVIEW NOW</button>}
-          <p></p>
+          {userId !== listing.ownerId && booking.ownerHasBeenReviewed === false && <button onClick={() => setModalOpen(true)}>LEAVE REVIEW NOW</button>}
         </div>
       </article>
       <Modal open={modalOpen} onClose={()=> setModalOpen(false)}>
-        <ReviewModal booking={booking} dealPartner={dealPartner} />
+        <ReviewModal booking={booking} dealPartner={dealPartner} setModal={setModalOpen} />
       </Modal>
     </>
   )
