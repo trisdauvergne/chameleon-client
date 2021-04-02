@@ -18,7 +18,7 @@ const Navbar = () => {
           <span className="material-icons-round">local_offer</span>
           <li>Deals</li>
         </Link>
-        <Link to="/">
+        <Link to="/account">
         <span className="material-icons-round">account_circle</span>
           <li>Account</li>
         </Link>

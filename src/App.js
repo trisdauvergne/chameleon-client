@@ -8,9 +8,9 @@ import UpdateListing from './pages/updatelisting/UpdateListing';
 import Navbar from './components/navbar/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useState } from 'react';
+import Account from './pages/account/Account';
 
 function App() {
-  const [cookie, setCookie ] = useState('');
  
   return (
       <Router>
@@ -21,6 +21,7 @@ function App() {
           <Route path="/listing" component={Listing} />
           <Route path="/deals" component={Deals}/>
           <Route path="/updatelisting/:listingid" component={UpdateListing} />
+          <Route path="/account" component={Account}/>
         </Switch>
         <Navbar />
       </Router>
