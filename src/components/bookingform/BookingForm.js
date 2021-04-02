@@ -5,11 +5,11 @@ const BookingForm = ({listingId, ownerId}) => {
         <form method="POST" action={`${host}/bookings`}>
             <label>
                 From
-                <input type="date" name="bookingFrom"/>
+                <input type="date" name="bookingFrom" required/>
             </label>
             <label>
                 To
-                <input type="date" name="bookingTo"/>
+                <input type="date" name="bookingTo" required/>
             </label>
             <input type="hidden" value={listingId} name="listingId"/>
             <input type="hidden" value={ownerId} name="ownerId"/>

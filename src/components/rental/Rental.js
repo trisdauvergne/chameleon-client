@@ -46,7 +46,7 @@ const Rental = ({ rental }) => {
         <button onClick={() => setModalOpen(true)} >See {owner.user.firstName}'s information</button>
       </div>
  
-        <Modal open={modalOpen} onClose={()=> setModalOpen(false)}>
+      <Modal open={modalOpen} onClose={()=> setModalOpen(false)}>
         <article className="user-modal">
           <div className="user-modal__img">
             <img src="https://i.pravatar.cc/150"/>
@@ -63,11 +63,5 @@ const Rental = ({ rental }) => {
     </article>
   )
 }
-
-// location: {
-//   street: String,
-//   postalcode: Number,
-//   area: String
-// }
 
 export default Rental;
