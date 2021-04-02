@@ -21,9 +21,9 @@ const Review = ({ review }) => {
 
   return (
     <div>
-      <p>{reviewAuthor.user.firstName} gave you {review.rating} out of 5</p>
+      <p>{reviewAuthor.user.firstName} rated {review.rating} out of 5</p>
       {review.feedback !== '' && <p>"{review.feedback}"</p>}
-      <p>Review date: {review.date.getUTCDay()}</p>
+      <p>Review date: {review.date}</p>
     </div>
   )
 }

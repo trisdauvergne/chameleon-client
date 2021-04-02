@@ -31,6 +31,7 @@ const AccountInfo = () => {
           <br/>
           <p>{userInfo.user.location.street}</p>
           <p>{userInfo.user.location.postalcode}, {userInfo.user.location.area}</p>
+          <h3>Your average rating: {userInfo.rating}</h3>
       </div>
       <button>Edit account settings</button>
     </article>

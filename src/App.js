@@ -7,8 +7,8 @@ import Deals from './pages/deals/Deals';
 import UpdateListing from './pages/updatelisting/UpdateListing';
 import Navbar from './components/navbar/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { useState } from 'react';
 import Account from './pages/account/Account';
+import User from './pages/user/User';
 
 function App() {
  
@@ -22,6 +22,7 @@ function App() {
           <Route path="/deals" component={Deals}/>
           <Route path="/updatelisting/:listingid" component={UpdateListing} />
           <Route path="/account" component={Account}/>
+          <Route path="/user/:userId" component={User}/>
         </Switch>
         <Navbar />
       </Router>

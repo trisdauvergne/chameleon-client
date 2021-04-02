@@ -19,7 +19,7 @@ const ReviewModal = ({ dealPartner, booking, setModal }) => {
         targetId: dealPartner.user._id,
         authorId,
         bookingId: booking._id,
-        date: Date.now()
+        date: new Date().toISOString().split('T')[0]
       }
       await fetch(`${host}/reviews`, { method: 'POST', body: JSON.stringify(reviewObject), headers: { 'Content-Type': 'application/json' } });
       setReview({
