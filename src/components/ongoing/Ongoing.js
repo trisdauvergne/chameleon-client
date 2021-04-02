@@ -22,6 +22,7 @@ const Ongoing = () => {
     <div>
       {rentals.map(rental => <Rental key={rental._id} rental={rental} />)}
     </div>
+    
   )
 }
 
