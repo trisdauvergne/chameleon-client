@@ -1,9 +1,24 @@
 import { host } from '../../config';
+import { useHistory } from 'react-router-dom';
+
 const CreateListing = () => {
+    const ownerId = document.cookie.split('=')[1];
+    let history = useHistory();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const form = document.getElementById('listingForm');
+        const formData = new FormData(form);
+
+        await fetch(`${host}/listings`, { method: 'POST', body: formData });
+        history.push('/deals');
+    };
+
     return (
     <>
     <h1>Test Form</h1>
-        <form method="POST" action={`${host}/listings`} enctype="multipart/form-data">
+        <form onSubmit={handleSubmit} id="listingForm" name="listingForm" encType="multipart/form-data">
+            <input type="hidden" value={ownerId} name="ownerId" />
             <label>
                 Upload image
                 <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg"/>

@@ -8,7 +8,7 @@ const Active = () => {
   const getActiveListings = async () => {
     const data = await fetch(`${host}/listings/active/${ownerId}`);
     const activeData = await data.json();
-    setActiveListings(activeData);
+    setActiveListings(activeData.reverse());
   };
 
     useEffect(() => {

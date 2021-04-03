@@ -10,7 +10,7 @@ const Feed = () => {
           const data = await fetch(`${host}/listings`);
           const listingsData = await data.json();
           const filteredListings = listingsData.filter(listing => listing.ownerId !== ownerId);
-          setListings(filteredListings);
+          setListings(filteredListings.reverse());
         } catch (err) {
           console.log(err);
         }
