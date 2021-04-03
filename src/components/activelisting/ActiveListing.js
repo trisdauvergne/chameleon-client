@@ -9,7 +9,7 @@ const ActiveListing = ({ listing }) => {
   const [pendingBookings, setPendingBookings] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [renter, setRenter] = useState(null);
-  const [currentRenters, setCurrentRenters] = useState(null);
+  const [currentRenters, setCurrentRenters] = useState([]);
 
   let history = useHistory();
 
@@ -96,7 +96,7 @@ const ActiveListing = ({ listing }) => {
         <button onClick={deleteListing}>Delete</button>
         <div>
           <ul>
-            {acceptedBookings.map(listing => <li key={listing._id}>From: {listing.bookingFrom}  To: {listing.bookingTo} <button onClick={() =>itemReturned(listing._id)}>Item returned</button></li>)}
+            {acceptedBookings.map((listing, index) => <li key={listing._id}>{currentRenters.length !== 0 && <Link to={`/user/${listing.renterId}`}>{currentRenters[index].user.firstName}</Link>} From: {listing.bookingFrom}  To: {listing.bookingTo} <button onClick={() =>itemReturned(listing._id)}>Item returned</button></li>)}
           </ul>
           {pendingBookings.length !== 0 && <button onClick={() => setModalOpen(true)}>Review request</button>}
         </div>
