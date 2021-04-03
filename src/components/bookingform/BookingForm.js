@@ -18,7 +18,7 @@ const BookingForm = ({listingId, ownerId}) => {
         <form name="bookingForm" id="bookingForm" onSubmit={handleSubmit}>
             <label>
                 From
-                <input type="date" name="bookingFrom" required/>
+                <input type="date" name="bookingFrom" required />
             </label>
             <label>
                 To
