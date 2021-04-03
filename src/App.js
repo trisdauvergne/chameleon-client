@@ -13,7 +13,8 @@ import User from './pages/user/User';
 function App() {
  
   return (
-      <Router>
+    <>
+      <Router basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route path="/login" component={Login} />
           <Route path="/" exact component={Home} />
@@ -26,6 +27,7 @@ function App() {
         </Switch>
         <Navbar />
       </Router>
+      </>
   );
 }
 
