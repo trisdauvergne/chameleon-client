@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/chameleon-client/static/css/main.f254f88d.chunk.css",
-    "main.js": "/chameleon-client/static/js/main.6ab75581.chunk.js",
-    "main.js.map": "/chameleon-client/static/js/main.6ab75581.chunk.js.map",
+    "main.js": "/chameleon-client/static/js/main.cb70d074.chunk.js",
+    "main.js.map": "/chameleon-client/static/js/main.cb70d074.chunk.js.map",
     "runtime-main.js": "/chameleon-client/static/js/runtime-main.fe8b60f5.js",
     "runtime-main.js.map": "/chameleon-client/static/js/runtime-main.fe8b60f5.js.map",
-    "static/js/2.b1a6e6e4.chunk.js": "/chameleon-client/static/js/2.b1a6e6e4.chunk.js",
-    "static/js/2.b1a6e6e4.chunk.js.map": "/chameleon-client/static/js/2.b1a6e6e4.chunk.js.map",
+    "static/js/2.8b1c1df6.chunk.js": "/chameleon-client/static/js/2.8b1c1df6.chunk.js",
+    "static/js/2.8b1c1df6.chunk.js.map": "/chameleon-client/static/js/2.8b1c1df6.chunk.js.map",
     "static/js/3.b26318e3.chunk.js": "/chameleon-client/static/js/3.b26318e3.chunk.js",
     "static/js/3.b26318e3.chunk.js.map": "/chameleon-client/static/js/3.b26318e3.chunk.js.map",
     "index.html": "/chameleon-client/index.html",
     "static/css/main.f254f88d.chunk.css.map": "/chameleon-client/static/css/main.f254f88d.chunk.css.map",
-    "static/js/2.b1a6e6e4.chunk.js.LICENSE.txt": "/chameleon-client/static/js/2.b1a6e6e4.chunk.js.LICENSE.txt"
+    "static/js/2.8b1c1df6.chunk.js.LICENSE.txt": "/chameleon-client/static/js/2.8b1c1df6.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.fe8b60f5.js",
-    "static/js/2.b1a6e6e4.chunk.js",
+    "static/js/2.8b1c1df6.chunk.js",
     "static/css/main.f254f88d.chunk.css",
-    "static/js/main.6ab75581.chunk.js"
+    "static/js/main.cb70d074.chunk.js"
   ]
 }
