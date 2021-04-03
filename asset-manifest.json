@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/chameleon-client/static/css/main.f254f88d.chunk.css",
-    "main.js": "/chameleon-client/static/js/main.37a8b991.chunk.js",
-    "main.js.map": "/chameleon-client/static/js/main.37a8b991.chunk.js.map",
+    "main.js": "/chameleon-client/static/js/main.a5d44c88.chunk.js",
+    "main.js.map": "/chameleon-client/static/js/main.a5d44c88.chunk.js.map",
     "runtime-main.js": "/chameleon-client/static/js/runtime-main.fe8b60f5.js",
     "runtime-main.js.map": "/chameleon-client/static/js/runtime-main.fe8b60f5.js.map",
     "static/js/2.d1875bdd.chunk.js": "/chameleon-client/static/js/2.d1875bdd.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.fe8b60f5.js",
     "static/js/2.d1875bdd.chunk.js",
     "static/css/main.f254f88d.chunk.css",
-    "static/js/main.37a8b991.chunk.js"
+    "static/js/main.a5d44c88.chunk.js"
   ]
 }
