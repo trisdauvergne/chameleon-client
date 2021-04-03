@@ -16,8 +16,7 @@ const Login = () => {
             body: JSON.stringify({username}), 
             method: 'POST', 
             headers: { 'Content-Type': 'application/json' },
-            credentials: 'include',
-            mode: 'cors'
+            credentials: 'include'
         });
 
         setUsername('');

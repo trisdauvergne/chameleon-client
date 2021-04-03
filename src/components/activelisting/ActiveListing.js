@@ -9,6 +9,7 @@ const ActiveListing = ({ listing }) => {
   const [pendingBookings, setPendingBookings] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [renter, setRenter] = useState(null);
+  const [currentRenters, setCurrentRenters] = useState(null);
 
   let history = useHistory();
 
@@ -35,6 +36,11 @@ const ActiveListing = ({ listing }) => {
     setRenter(data);
   };
 
+  const getCurrentRenters = async () => {
+    const data = await Promise.all(acceptedBookings.map(booking => fetch(`${host}/users/${booking.renterId}`).then(res => res.json())));
+    setCurrentRenters(data);
+  };
+ 
   useEffect(() => {
     getBookings();
   }, []);
@@ -42,6 +48,10 @@ const ActiveListing = ({ listing }) => {
   useEffect(() => {
     getRenter();
   }, [pendingBookings]);
+
+  useEffect(() => {
+    getCurrentRenters();
+  }, [acceptedBookings])
 
   const approveRequest = async () => {
     const approved = {
