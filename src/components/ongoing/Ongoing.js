@@ -10,7 +10,7 @@ const Ongoing = () => {
     const data = await fetch(`${host}/bookings/rentals/${renterId}`);
     const rentalsData = await data.json();
     const filteredRentals = rentalsData.filter(rental => rental.completed === false);
-    setRentals(filteredRentals);
+    setRentals(filteredRentals.reverse());
   };
 
     useEffect(() => {
