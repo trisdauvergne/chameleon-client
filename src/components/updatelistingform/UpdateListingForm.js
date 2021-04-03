@@ -3,6 +3,7 @@ import { host } from '../../config';
 import { Link, useHistory } from 'react-router-dom';
 
 const UpdateListingForm = ({listingId}) => {
+    const ownerId = document.cookie.split('=')[1];
     const [listing, setListing] = useState(null);
     let history = useHistory();
 
@@ -17,6 +18,15 @@ const UpdateListingForm = ({listingId}) => {
       history.push('/deals');
     }
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const form = document.getElementById('updateListingForm');
+        const formData = new FormData(form);
+
+        await fetch(`${host}/listings/${listingId}`, { method: 'POST', body: formData });
+        history.push('/deals');
+    }
+
     useEffect(() => {
       getListing();
     }, []);
@@ -26,7 +36,8 @@ const UpdateListingForm = ({listingId}) => {
     }
 
     return (
-        <form method="POST" action={`${host}/listings/${listingId}`} enctype="multipart/form-data" >
+        <form onSubmit={handleSubmit} name="updateListingForm" id="updateListingForm" enctype="multipart/form-data" >
+            <input type="hidden" value={ownerId} name="ownerId" />
             <input type="hidden" value={listing.pictures[0]} name="currentimage"></input>
             <label>
                 Upload image
