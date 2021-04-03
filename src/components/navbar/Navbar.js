@@ -22,6 +22,9 @@ const Navbar = () => {
         <span className="material-icons-round">account_circle</span>
           <li>Account</li>
         </Link>
+        <Link to="/login">
+          <li>Login</li>
+        </Link>
       </ul>
     </div>
   );
