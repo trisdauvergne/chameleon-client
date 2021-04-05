@@ -24,7 +24,7 @@ function App() {
         <Route path="/deals" component={Deals}/>
         <Route path="/updatelisting/:listingid" component={UpdateListing} />
         <Route path="/account" component={Account}/>
-        <Route path="/user/:userId" component={User}/>
+        <Route path="/user/:userId" exact component={User}/>
       </Switch>
       <Navbar />
     </>

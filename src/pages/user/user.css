@@ -1,0 +1,28 @@
+.user-info {
+  width: 90%;
+  margin: 4rem auto 0 auto;
+}
+
+.user-info__name {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.user-info__img {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.user-info__info{
+  margin-left: 1rem;
+}
+
+.user-info__star {
+  color: #FF9A00;
+  font-size: 1.5rem;
+  position: relative;
+  top: 0.3rem;
+  z-index: -1;
+}

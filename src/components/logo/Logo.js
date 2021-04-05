@@ -3,7 +3,9 @@ import './logo.css';
 
 const Logo = () => {
   return (
-    <h1>Chameleon</h1>
+    <div className="logo-container">
+      <h1 className="logo">Chameleon</h1>
+    </div>
   );
 };
 

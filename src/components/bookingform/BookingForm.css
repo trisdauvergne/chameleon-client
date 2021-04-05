@@ -1,0 +1,45 @@
+* {
+    box-sizing:content-box;
+    margin:0;
+    padding: 0;
+}
+
+.header {
+    margin-bottom: 0.5rem;
+}
+
+.form-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-book {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-date {
+    margin-bottom: 0.5rem;
+    width: 220px;
+    padding: 0.1rem;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-submit {
+    background-color: #FF9A00;
+    border-radius: 0.2rem;
+    border: 1px solid #ccc;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+}
+
+.close-icon {
+    font-size: 18px;
+}
+
+.btn-close {
+    background: none;
+    border-style: none;
+}

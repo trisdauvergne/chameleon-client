@@ -1,0 +1,15 @@
+.filter__btn-div {
+  margin: auto;
+  margin-top: 4rem;
+  margin-bottom: 0.5rem;
+  background-color: white;
+  align-items: bottom;
+}
+
+.filter__btn {
+  font-family: 'Poppins', sans-serif;
+  background-color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+}

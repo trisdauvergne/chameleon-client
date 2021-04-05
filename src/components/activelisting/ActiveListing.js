@@ -10,6 +10,7 @@ const ActiveListing = ({ listing }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [renter, setRenter] = useState(null);
   const [currentRenters, setCurrentRenters] = useState([]);
+  const [bookingsVisible, setBookingsVisible] = useState(false);
 
   let history = useHistory();
 
@@ -87,18 +88,27 @@ const ActiveListing = ({ listing }) => {
         <img className="active-listing__img" src={`${host}/uploads/${listing.pictures[0]}`} alt={listing.title}/>
       </div>
       <div className="active-listing__txt-div">
-        <h3>{listing.title}</h3>
-        <p>{listing.description}</p>
-        <p>{listing.attributes.price} SEK</p>
-        <Link to={`/updatelisting/${listing._id}`}>
-          <button>Update</button>
-        </Link>
-        <button onClick={deleteListing}>Delete</button>
+        <h3 className="active-listing__listing-title">{listing.title}</h3>
+        <p className="active-listing__listing-description">{listing.description}</p>
+        <p className="active-listing__listing-price semibold">{listing.attributes.price} SEK per day</p>
+        <div className="active-listing__btn-div">
+          <Link to={`/updatelisting/${listing._id}`}>
+            <p className="semibold active-listing__btn active-listing__btn--update-btn">Update</p>
+          </Link>
+          <p className="semibold active-listing__btn active-listing__btn--delete-btn" onClick={deleteListing}>Delete</p>
+        </div>
         <div>
-          <ul>
-            {acceptedBookings.map((listing, index) => <li key={listing._id}>{currentRenters.length !== 0 && <Link to={`/user/${listing.renterId}`}>{currentRenters[index].user.firstName}</Link>} From: {listing.bookingFrom}  To: {listing.bookingTo} <button onClick={() =>itemReturned(listing._id)}>Item returned</button></li>)}
-          </ul>
-          {pendingBookings.length !== 0 && <button onClick={() => setModalOpen(true)}>Review request</button>}
+          {acceptedBookings.length > 0 && <button className="active-listing__btn active-listing__btn--dates-btn" onClick={() => setBookingsVisible(!bookingsVisible)}>View pre-booked dates</button>}
+          {bookingsVisible && <ul className="active-listing__acceptedbookings-ul">
+            {acceptedBookings.map((listing, index) =>
+            <>
+            <li className="active-listing__acceptedbooking-li"key={listing._id}>{currentRenters.length !== 0 &&
+            <p className="active-listing__acceptedbooking-p">Booked by: <Link to={`/user/${listing.renterId}`}>{currentRenters[index].user.firstName}</Link></p>}
+            <p className="active-listing__acceptedbooking-p">Rented from: {listing.bookingFrom}</p>
+            <p className="active-listing__acceptedbooking-p">Rented to: {listing.bookingTo}</p>
+            <button className="active-listing__return-btn" onClick={() =>itemReturned(listing._id)}>Item returned</button></li></>)}
+          </ul>}
+          {pendingBookings.length !== 0 && <button className="active-listing__request-btn" onClick={() => setModalOpen(true)}>Review pending request</button>}
         </div>
       </div>
     </article>

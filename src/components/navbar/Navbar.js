@@ -34,27 +34,35 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <ul className="navbar__links">
-        <Link to="/">
-        <span className="material-icons-round">home</span>
-          <li>Home</li>
+        <Link to="/" style={{ textDecoration: 'none' }}>
+        <div className="link-container">
+        <span className="material-icons-round navbar-icon">home</span>
+          <li className="navbar-txt semibold">Home</li>
+          </div>
         </Link>
-        <Link to="/listing">
-          <span className="material-icons-round">add</span>
-          <li>List item</li>
+        <Link to="/listing" style={{ textDecoration: 'none' }}>
+        <div className="link-container">
+          <span className="material-icons-round navbar-icon">add</span>
+          <li className="navbar-txt semibold">List item</li>
+        </div>
         </Link>
-        <Link to={{
-          pathname:"/deals",
-          state: true
-        }}>
-          <span className={`material-icons-round ${incomingRequests.length !== 0 || completedBookings.length !== 0 ? 'navbar-link--actions' : ''}`}>local_offer</span>
-          <li>Deals</li>
+       
+        <Link to="/deals" style={{ textDecoration: 'none' }}>
+        <div className="link-container">
+          <span className={`material-icons-round navbar-icon ${incomingRequests.length !== 0 || completedBookings.length !== 0 ? 'navbar-icon--actions' : ''}`}>local_offer</span>
+          <li className="navbar-txt semibold">Deals</li>
+          </div>
         </Link>
-        <Link to="/account">
-        <span className="material-icons-round">account_circle</span>
-          <li>Account</li>
+        <Link to="/account" style={{ textDecoration: 'none' }}>
+        <div className="link-container">
+        <span className="material-icons-round navbar-icon">account_circle</span>
+          <li className="navbar-txt semibold">Account</li>
+          </div>
         </Link>
-        <Link to="/login">
-          <li>Login</li>
+        <Link to="/login" style={{ textDecoration: 'none' }}>
+        <div className="link-container">
+          <li className="navbar-txt semibold">L</li>
+          </div>
         </Link>
       </ul>
     </div>

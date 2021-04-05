@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { host } from '../../config';
-
+import { Link } from 'react-router-dom';
+import Rating from '../rating/Rating';
+import './review.css';
 
 const Review = ({ review }) => {
   const [reviewAuthor, setReviewAuthor] = useState(null);
@@ -20,10 +22,10 @@ const Review = ({ review }) => {
   }
 
   return (
-    <div>
-      <p>{reviewAuthor.user.firstName} rated {review.rating} out of 5</p>
-      {review.feedback !== '' && <p>"{review.feedback}"</p>}
-      <p>Review date: {review.date}</p>
+    <div className="review">
+      <p className="review__rating semibold"><Link to={`/user/${reviewAuthor.user._id}`}>{reviewAuthor.user.firstName}</Link> <Rating rating={review.rating}/></p>
+      {review.feedback !== '' && <p className="review__feedback">"{review.feedback}"</p>}
+      <p className="review__date">{review.date}</p>
     </div>
   )
 }

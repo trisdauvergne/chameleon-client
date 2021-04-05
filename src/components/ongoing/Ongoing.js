@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { host } from '../../config';
 import Rental from '../rental/Rental.js';
+import './ongoing.css';
 
 const Ongoing = () => {
   const renterId = document.cookie.split('=')[1];
@@ -18,10 +19,10 @@ const Ongoing = () => {
     }, []);
 
   return (
-    <div>
-      {rentals.map(rental => <Rental key={rental._id} rental={rental} />)}
-    </div>
-    
+      <div>
+        <h3 className="live-deals__subheading">Other people's items</h3>
+        {rentals.map(rental => <Rental key={rental._id} rental={rental} />)}
+      </div>
   )
 }
 

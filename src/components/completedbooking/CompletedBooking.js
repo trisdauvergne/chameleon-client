@@ -41,12 +41,12 @@ const CompletedBooking = ({ booking }) => {
     <>
       <article className="completed">
         <img className="completed__img" src={`${host}/uploads/${listing.pictures[0]}`} />
-        <div>
-          <p>{listing.title}</p>
-          {userId === listing.ownerId && <p>You rented it out to {dealPartner.user.firstName}</p>}
-          {userId === listing.ownerId && booking.renterHasBeenReviewed === false && <button onClick={() => setModalOpen(true)}>LEAVE REVIEW NOW</button>}
-          {userId !== listing.ownerId && <p>You rented it from {dealPartner.user.firstName}</p>}
-          {userId !== listing.ownerId && booking.ownerHasBeenReviewed === false && <button onClick={() => setModalOpen(true)}>LEAVE REVIEW NOW</button>}
+        <div className="completed__txt">
+          <h3 className="completed__title">{listing.title}</h3>
+          {userId === listing.ownerId && <p className="completed__p">You rented this item to {dealPartner.user.firstName}</p>}
+          {userId === listing.ownerId && booking.renterHasBeenReviewed === false && <button className="completed__review-btn" onClick={() => setModalOpen(true)}>Leave {dealPartner.user.firstName} a review</button>}
+          {userId !== listing.ownerId && <p>You rented this item from {dealPartner.user.firstName}</p>}
+          {userId !== listing.ownerId && booking.ownerHasBeenReviewed === false && <button className="completed__review-btn" onClick={() => setModalOpen(true)}>Leave {dealPartner.user.firstName} a review</button>}
         </div>
       </article>
       <Modal open={modalOpen} onClose={()=> setModalOpen(false)}>

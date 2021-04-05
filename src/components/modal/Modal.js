@@ -9,7 +9,11 @@ const Modal = ({ children, open, onClose }) => {
   return ReactDom.createPortal(
     <>
       <div className="overlay"></div>
-      <div className="modal">{children}<button onClick={onClose}>Close Modal</button></div>
+      <div className="modal">
+        <button onClick={onClose} className="btn-close"><span className="material-icons-round close-icon">close</span></button>
+        {children}
+        {/* <button className="semibold btn-close-modal" onClick={onClose}>Close</button> */}
+      </div>
     </>,
     document.getElementById('portal')
   )

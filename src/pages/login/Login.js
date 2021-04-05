@@ -1,6 +1,7 @@
 import { host } from '../../config';
 import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import './Login.css'
 
 const Login = () => {
 
@@ -38,18 +39,26 @@ const Login = () => {
     }
 
     return (
-        <>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    <input type="text" name="username" placeholder="username" value={username} onChange={(e) => setUsername(e.target.value)} required/>
+        <article className="form-container-login">
+            <h2 class="header-login">Welcome to Chameleon</h2>
+            <h3 class="subheader-login">Please log in</h3>
+            <form className="form-login" onSubmit={handleSubmit}>
+                <label className="semibold">
+                    Username <br/>
+                    <input className="input-field" type="text" name="username" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} required/>
+                <br/>
                 </label>
-                <label>
-                    <input type="password" name="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                <label className="semibold">
+                Password <br/>
+                    <input className="input-field" type="password" name="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                    <br/>
+                    <br/>
                 </label>
-                <button type="submit">Login</button>
+                <button className="btn-submit semibold" type="submit">Login</button>
+                <button className="btn-create-account semibold"> Create account </button>
             </form>
             {badUsername && <h3>Please enter a valid username</h3>}
-        </>
+        </article>
     );
 }
 

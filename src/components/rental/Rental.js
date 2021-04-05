@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { host } from '../../config';
 import './rental.css';
 import Modal from '../modal/Modal.js';
+import { Link } from 'react-router-dom';
 
 const Rental = ({ rental }) => {
   const [listing, setListing] = useState(null)
@@ -38,26 +39,23 @@ const Rental = ({ rental }) => {
   return (
     <article className="rental">
       <img className="rental__img" src={`${host}/uploads/${listing.pictures[0]}`}/>
-      <div>
-        <h3>{listing.title} {!rental.accepted && <span>(Pending)</span>}</h3>
-        <p>Start: {rental.bookingFrom} </p>
-        <p>Return: {rental.bookingTo} </p>
-        <p>Rented by: {owner.user.firstName}</p>
-        <button onClick={() => setModalOpen(true)} >See {owner.user.firstName}'s information</button>
+      <div className="rental__txt">
+        <h3 className="rental__heading">{listing.title}</h3>
+        {rental.accepted && <p className="semibold rental__status">Request Approved</p>}
+        {!rental.accepted && <p className="semibold rental__status">Request Pending</p>}
+        <p className="rental__owner">Rented from: <Link to={`/user/${owner.user._id}`}>{owner.user.firstName}</Link></p>
+        {rental.accepted && <button onClick={() => setModalOpen(true)} >
+          Contact {owner.user.firstName}
+        </button>}
+        <p className="rental__date">Rental start: {rental.bookingFrom}</p>
+        <p className="rental__date rental__date--end">Rental end: {rental.bookingTo}</p>
       </div>
  
       <Modal open={modalOpen} onClose={()=> setModalOpen(false)}>
         <article className="user-modal">
-          <div className="user-modal__img">
-            <img src="https://i.pravatar.cc/150"/>
-          </div>
-          <div>
             <h3>{owner.user.firstName} {owner.user.lastName}</h3>
-            <p>{owner.rating}</p>
             <p>{owner.user.location.postalcode}, {owner.user.location.area}</p>
-            {rental.accepted && 
-            <p>{owner.user.email}</p>}
-          </div>
+            <p>{owner.user.email}</p>
         </article>
       </Modal>
     </article>

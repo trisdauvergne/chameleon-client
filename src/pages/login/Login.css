@@ -1,0 +1,27 @@
+.form-container-login {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 8rem;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+}
+
+.subheader-login{
+    margin-top: 0.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-create-account {
+    background-color: #ccc;
+    border-radius: 0.6rem;
+    border: 1px solid #ccc;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    width: 150px;
+    align-self: center;
+    margin-top: 0.5rem;
+}

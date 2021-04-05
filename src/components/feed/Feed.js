@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Listing from '../listing/Listing';
 import Filter from '../filter/Filter';
 import { host } from '../../config';
+import './feed.css';
 
 const Feed = () => {
     const [listings, setListings] = useState([]);
@@ -41,10 +42,14 @@ const Feed = () => {
       }, []);
 
   return (
-    <div>
-      <button onClick={() => setFilterVisible(!filterVisible)}>Filter</button>
+    <div className="filter">
+      <div className="filter__btn-div">
+        <button className="filter__btn" onClick={() => setFilterVisible(!filterVisible)}>Filter<span class="material-icons-round">filter_list</span></button>
+      </div>
       {filterVisible && <Filter changeFilter={changeFilter} resetFilters={() => setFilters([])} />}
-      {listingsFiltered.map(listing => <Listing listing={listing} key={listing._id}/>)}
+      <div className="listing">
+        {listingsFiltered.map(listing => <Listing listing={listing} key={listing._id}/>)}
+      </div>
     </div>
   );
 };

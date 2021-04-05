@@ -1,0 +1,9 @@
+.rating {
+  display: inline-block;
+  margin-left: 0.4rem;
+}
+
+.rating__star {
+  font-size: 1rem;
+  color: #FF9A00;
+}

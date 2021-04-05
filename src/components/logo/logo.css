@@ -1,0 +1,16 @@
+/* .logo-container {
+  height: 50px;
+} */
+
+.logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  text-align: center;
+  font-size: 3rem;
+  border-bottom: 2px solid black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+}

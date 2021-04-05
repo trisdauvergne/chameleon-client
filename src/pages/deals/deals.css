@@ -1,0 +1,15 @@
+.active-deals {
+  margin-top: 4rem;
+}
+
+.active-deals__header {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.active-deals__tabs {
+  display: flex;
+  margin: 0 1rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}

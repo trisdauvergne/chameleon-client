@@ -1,7 +1,75 @@
 .active-listing {
   display: flex;
+  margin-bottom: 0.5rem;
+  align-items: center;
+}
+
+.active-listing__btn--update-btn:visited {
+  color: black;
 }
 
 .active-listing__img {
-  width: 150px;
+  width: 125px;
+  height: 125px;
+  object-fit: cover;
+  margin: 0 0.5rem;
+  border: 1px solid black;
 }
+
+.active-listing__listing-title,
+.active-listing__listing-price,
+.active-listing__listing-description {
+  margin-bottom: 0.25rem;
+}
+
+.active-listing__btn-div {
+  display: flex;
+  text-decoration: underline;
+  margin-bottom: 0.5rem;
+}
+
+.active-listing__btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  background-color: white;
+}
+
+.active-listing__btn--update-btn {
+  margin-right: 1rem;
+}
+
+.active-listing__btn--delete-btn {
+  margin-left: 1rem;
+}
+
+/* .active-listing__btn--dates-btn {
+  text-decoration: underline;
+  margin-bottom: 0.5rem;
+} */
+
+.active-listing__request-btn,
+.active-listing__btn--dates-btn,
+.active-listing__return-btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  border-radius: 0.6rem;
+  border: 1px solid black;
+  padding: 1px 4px;
+  margin-bottom: 0.25rem;
+}
+
+.active-listing__request-btn {
+  background-color: #FF9A00;
+}
+
+.active-listing__return-btn {
+  margin-top: 0.25rem;
+}
+
+.active-listing__acceptedbooking-li {
+  list-style: none;
+}
+
+/* .active-listing__acceptedbooking-p {
+  color: purple;
+} */

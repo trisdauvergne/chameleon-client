@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { host } from '../../config';
+import './reviewmodal.css';
 
 const ReviewModal = ({ dealPartner, booking, setModal }) => {
     let history = useHistory();
@@ -31,35 +32,35 @@ const ReviewModal = ({ dealPartner, booking, setModal }) => {
     }
 
   return (
-    <>
-      <h1>Review {dealPartner.user.firstName}</h1>
-      <form onSubmit={handleSubmit} id="review-form">
-          <div onChange={(e) => setReview({...review, rating: e.target.value})} >
-              <label>
-                  1
-                <input type="radio" value="1" name="rating" required/>
+    <div className="review-modal">
+      <h2 className="review-modal__heading">Review {dealPartner.user.firstName}</h2>
+      <form className="review-modal__form" onSubmit={handleSubmit} id="review-form">
+          <div className="review-modal__input-div" onChange={(e) => setReview({...review, rating: e.target.value})} >
+              <label className="review-modal__label">
+                <input className="review-modal__input" type="radio" value="1" name="rating" required/>
+                1
               </label>
-              <label>
-                  2
-                <input type="radio" value="2" name="rating"/>
+              <label className="review-modal__label">
+                <input className="review-modal__input" type="radio" value="2" name="rating"/>
+                2
               </label>
-              <label>
-                  3
-                <input type="radio" value="3" name="rating"/>
+              <label className="review-modal__label">
+                <input className="review-modal__input" type="radio" value="3" name="rating"/>
+                3
               </label>
-              <label>
-                  4
-                <input type="radio" value="4" name="rating"/>
+              <label className="review-modal__label">
+                <input className="review-modal__input" type="radio" value="4" name="rating"/>
+                4
               </label>
-              <label>
-                  5
-                <input type="radio" value="5" name="rating"/>
+              <label className="review-modal__label">
+                <input className="review-modal__input" type="radio" value="5" name="rating"/>
+                5
               </label>
           </div>
-        <textarea form="review-form" name="feedback" value={review.feedback} onChange={(e) => setReview({...review, feedback: e.target.value})} placeholder="Write about your experience" />
-        <button type="submit">Leave a review</button>
+        <textarea className="review-modal__textarea" form="review-form" name="feedback" value={review.feedback} onChange={(e) => setReview({...review, feedback: e.target.value})} placeholder={`Write about your experience with ${dealPartner.user.firstName}`} />
+        <button className="review-modal__btn" type="submit">Leave a review</button>
       </form>
-    </>
+    </div>
   );
 };
 

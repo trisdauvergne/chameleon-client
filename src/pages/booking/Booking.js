@@ -17,7 +17,6 @@ const Booking = ({ match }) => {
 
   return (
     <div>
-      <h1>Booking Form</h1>
       <BookingForm listingId={match.params.listingId} ownerId={ownerId}/>
     </div>
   )

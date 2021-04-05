@@ -1,0 +1,65 @@
+.account-info {
+  width: 90%;
+  margin: 4rem auto 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.account-info > h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.account-info__account {
+  margin-top: 1rem;
+}
+
+.account-info__edit {
+  font-family: 'Poppins', sans-serif;
+  background-color: transparent;
+  border: none;
+  margin-top: 1rem;
+}
+
+.account-info__edit > span {
+  font-size: 1rem;
+  margin-left: 0.2rem;
+  position: relative;
+  top: 0.2rem;
+}
+
+.account-info__img {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.account-info__img > img {
+  object-fit: cover;
+}
+
+.account-info__personal {
+  margin-left: 1rem;
+}
+
+.account-info__personal > h3 {
+  line-height: 1.2rem;
+}
+
+.account-info__personal > h3:last-of-type {
+  /* margin-bottom: 0.5rem; */
+}
+
+.account-info__star {
+  color: #FF9A00;
+  font-size: 1.2rem;
+  position: relative;
+  top: 0.3rem;
+  z-index: -1;
+}
+
+.flex-wrapper {
+  display: flex;
+  align-items: center;
+}

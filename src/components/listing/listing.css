@@ -1,3 +1,48 @@
+.listing {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
 .listing__img {
-  width: 150px;
+  margin: auto;
+  object-fit: cover;
+  width: 250px;
+  height: 250px;
+  border: solid black 2px;
+  margin-bottom: 0.5rem;
+}
+
+.listing__txt {
+  margin: auto;
+  text-align: center;
+}
+
+.listing__txt--title,
+.listing__txt--username,
+.listing__txt--price {
+  margin-bottom: 0.25rem;
+}
+
+.listing__btns {
+  display: flex;
+  flex-direction: row;
+}
+
+.listing__btn {
+  margin: 0 0.3rem;
+}
+
+.listing__btn--underline {
+  text-decoration: underline;
+}
+
+.listing__txt--description,
+.listing__txt--dates {
+  margin: 0.5rem 1rem;
+}
+
+.black-star {
+  font-size: 1rem;
+  align-items: baseline;
 }

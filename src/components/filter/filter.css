@@ -1,0 +1,29 @@
+.filter {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter__dropdowns {
+  display: flex;
+  margin: 0 1rem 0.5rem 1rem;
+  justify-content: space-around;
+}
+
+.filter__dropdown--gender,
+.filter__dropdown--category,
+.filter__dropdown--size {
+  width: 4rem;
+  margin-bottom: 0.5rem;
+  font-weight: 100px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.filter-reset-btn {
+  width: 5rem;
+  margin: auto;
+  margin-bottom: 0.5rem;
+  border-radius: 0.6rem;
+  border: solid 1px black;
+  background-color: #ccc;
+  font-family: 'Poppins', sans-serif;
+}
