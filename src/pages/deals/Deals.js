@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route, useRouteMatch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, useRouteMatch, Link, useLocation } from 'react-router-dom';
 import Active from '../../components/active/Active';
 import Ongoing from '../../components/ongoing/Ongoing';
 import Completed from '../../components/completed/Completed';
@@ -6,6 +6,8 @@ import Completed from '../../components/completed/Completed';
 
 const Deals = () => {
   let { path, url } = useRouteMatch();
+  let location = useLocation();
+  console.log(location);
 
   return (
     <div>

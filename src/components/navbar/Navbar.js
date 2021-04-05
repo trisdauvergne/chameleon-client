@@ -4,21 +4,33 @@ import './navbar.css';
 import { host } from '../../config';
 
 const Navbar = () => {
-  const [unanswered, setUnanswered] = useState([]);
-
-  const ownerId = document.cookie.split('=')[1];
-  const getBookings = async () => {
-    const data = await fetch(`${host}/bookings/owner/${ownerId}`);
-    const bookingsData = await data.json();
-    // console.log(bookingsData);
+  const [incomingRequests, setIncomingRequests] = useState([]);
+  const [completedBookings, setCompletedBookings] = useState([]);
+  const userId = document.cookie.split('=')[1];
+  
+  const getBookingRequests = async () => {
+    const bookingsData = await fetch(`${host}/bookings/owner/${userId}`).then(res => res.json());
     const filteredBookings = bookingsData.filter(booking => !booking.accepted);
-    setUnanswered(filteredBookings);
+    setIncomingRequests(filteredBookings)
+  }
+
+  const getCompletedBookings = async () => {
+    const bookingsData = await fetch(`${host}/bookings/completed/${userId}`).then(res => res.json());
+    const filteredBookings = bookingsData.filter(booking => {
+      if (userId === booking.ownerId && !booking.renterHasBeenReviewed) {
+        return true;
+      } else if (userId === booking.renterId && !booking.ownerHasBeenReviewed) {
+        return true;
+      }
+    });
+    setCompletedBookings(filteredBookings);
   }
 
   useEffect(() => {
-    getBookings();
+    getBookingRequests();
+    getCompletedBookings();
   }, [])
-
+  
   return (
     <div className="navbar">
       <ul className="navbar__links">
@@ -30,9 +42,12 @@ const Navbar = () => {
           <span className="material-icons-round">add</span>
           <li>List item</li>
         </Link>
-        <Link to="/deals">
-          <span className="material-icons-round">local_offer</span>
-          <li>Deals{unanswered.length > 0 && unanswered.length}</li>
+        <Link to={{
+          pathname:"/deals",
+          state: true
+        }}>
+          <span className={`material-icons-round ${incomingRequests.length !== 0 || completedBookings.length !== 0 ? 'navbar-link--actions' : ''}`}>local_offer</span>
+          <li>Deals</li>
         </Link>
         <Link to="/account">
         <span className="material-icons-round">account_circle</span>

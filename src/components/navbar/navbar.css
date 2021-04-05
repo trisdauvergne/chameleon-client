@@ -12,3 +12,7 @@
   justify-content: space-evenly;
   list-style: none;
 }
+
+.navbar-link--actions {
+  background-color: red;
+}
