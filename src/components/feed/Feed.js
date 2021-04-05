@@ -16,7 +16,7 @@ const Feed = () => {
           const listingsData = await data.json();
           const filteredListings = listingsData.filter(listing => listing.ownerId !== ownerId);
           setListings(filteredListings.reverse());
-          setListingsFiltered(filteredListings.reverse());
+          setListingsFiltered(filteredListings);
         } catch (err) {
           console.log(err);
         }
