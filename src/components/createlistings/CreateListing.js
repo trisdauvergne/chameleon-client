@@ -23,7 +23,7 @@ const CreateListing = () => {
 
     <article className="form-container">
         <button onClick={goBack} className="btn-close"><span className="material-icons-round close-icon">close</span></button>
-    <h2 className="header">List a new item</h2>
+    <h2 className="header-create-listing">List a new item</h2>
         <form className="form-create-listing" onSubmit={handleSubmit} id="listingForm" name="listingForm" encType="multipart/form-data">
             <input type="hidden" value={ownerId} name="ownerId" />
             <label className="semibold">
@@ -45,9 +45,10 @@ const CreateListing = () => {
                 <br/>
             </label>
             <label className="semibold">
-                Category (pick an option in the list)
+                Category
                 <br/>
                 <select className="input-field input-select" name="category">
+                    <option value="guys">Select an option</option>
                     <option value="trousers">Trousers</option>
                     <option value="jeans">Jeans</option>
                     <option value="shirt">Shirt</option>
@@ -60,9 +61,10 @@ const CreateListing = () => {
                 <br/>
             </label>
             <label className="semibold">
-                Color (pick an option in the list)
+                Color
                 <br/>
                 <select className="input-field input-select" name="color">
+                <option value="guys">Select an option</option>
                     <option value="black">Black</option>
                     <option value="white">White</option>
                     <option value="red">Red</option>
@@ -79,9 +81,10 @@ const CreateListing = () => {
                 <br/>
             </label>
             <label className="semibold">
-                Size (pick an option in the list)
+                Size
                 <br/>
                 <select className="input-field input-select" name="size">
+                <option value="guys">Select an option</option>
                     <option value="xsmall">XS</option>
                     <option value="small">S</option>
                     <option value="medium">M</option>
@@ -91,9 +94,10 @@ const CreateListing = () => {
                 <br/>
             </label>
             <label className="semibold">
-                Gender (pick an option in the list)
+                Gender
                 <br/>
                 <select className="input-field input-select" name="gender">
+                    <option value="guys">Select an option</option>
                     <option value="guys">Guys</option>
                     <option value="ladies">Ladies</option>
                     <option value="unisex">Unisex</option>
