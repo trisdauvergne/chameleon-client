@@ -18,10 +18,10 @@ const Completed = () => {
   }, []);
 
   return (
-    <div>
+    <section className="completed-listings-container">
       <h3 className="completed__heading">Your completed deals</h3>
       {completedBookings.map(booking => <CompletedBooking key={booking._id} booking={booking}/>)}
-    </div>
+    </section>
   )
 }
 

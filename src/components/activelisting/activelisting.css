@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+.active-listing--pending {
+  order: -1;
+}
+
 .active-listing__btn--update-btn:visited {
   color: black;
 }
@@ -73,3 +77,41 @@
 /* .active-listing__acceptedbooking-p {
   color: purple;
 } */
+
+.request-review {
+  display: flex;
+  padding: 0.2rem;  
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.request-review__img {
+  margin: 0.3rem;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.2rem;
+  align-items: center;
+}
+
+.btn-approve {
+  background-color: #FF9A00;
+  border-radius: 0.2rem;
+  border: 1px solid #ccc;
+  padding: 0.2rem;
+  width: 50px;
+  margin-bottom: 0.3rem;
+}
+
+.btn-reject {
+  background-color: #ccc;
+  border-radius: 0.2rem;
+  border: 1px solid #ccc;
+  padding: 0.2rem;
+  width: 50px;
+}

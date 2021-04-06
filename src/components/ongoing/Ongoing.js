@@ -19,10 +19,10 @@ const Ongoing = () => {
     }, []);
 
   return (
-      <div>
+      <section className="live-deals-container">
         <h3 className="live-deals__subheading">Other people's items</h3>
         {rentals.map(rental => <Rental key={rental._id} rental={rental} />)}
-      </div>
+      </section>
   )
 }
 

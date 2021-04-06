@@ -1,4 +1,11 @@
 .active-listings__subheading {
   text-align: center;
   margin-bottom: 1rem;
+  order: -2;
+}
+
+.active-lisitings-container {
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
 }

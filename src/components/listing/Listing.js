@@ -29,7 +29,7 @@ const Listing = ({ listing }) => {
             <img className="listing__img" src={`${host}/uploads/${listing.pictures[0]}`} alt={listing.title}/>
             <div className="listing__txt">
                 <h3 className="listing__txt--title">{listing.title}</h3>
-                <p className="listing__txt--username semibold">Rented out by <Link to={`/user/${user.user._id}`}>{user.user.firstName}</Link> ({user.rating}<span class="black-star material-icons-round">star_rate</span>)</p>
+                <p className="listing__txt--username semibold">Rented out by <Link to={`/user/${user.user._id}`}>{user.user.firstName}</Link> ({user.rating}{user.rating !== 'No ratings yet' && <span class="black-star material-icons-round">star_rate</span>})</p>
                 <p className="listing__txt--price">{listing.attributes.price} SEK per day</p>
                 <div className="listing__btns">
                     <p className="listing__btn listing__btn--underline" onClick={() => setVisibleDescription(!visibleDescription)}>Read more</p>

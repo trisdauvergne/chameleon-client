@@ -25,7 +25,7 @@ const AccountInfo = () => {
       <h2>Account</h2>
       <div className="flex-wrapper">
       <section className="account-info__img">
-            <img src="https://i.pravatar.cc/125"/>
+            <img src={`${host}${userInfo.user.picture}`}/>
         </section>
         <section className="account-info__personal">
           <h3>{userInfo.user.firstName}</h3>

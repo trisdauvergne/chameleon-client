@@ -67,7 +67,6 @@ const ActiveListing = ({ listing }) => {
     });
     setModalOpen(false);
     history.go(0);
-    // window.location.reload(false);
   }
 
   const rejectRequest = async () => {
@@ -78,7 +77,7 @@ const ActiveListing = ({ listing }) => {
 
   const itemReturned = async (id) => {
     await fetch(`${host}/bookings/completed/${id}`, {method: 'PUT'});
-    history.go(0);
+    history.push('/deals/completed');
   }
 
   return (
@@ -118,14 +117,19 @@ const ActiveListing = ({ listing }) => {
           <div className="request-review__img">
             <img src="https://i.pravatar.cc/150"/>
           </div>
-          <div className="request-review__txt">
-            <h3>{renter.user.firstName}</h3>
-            <h2>Rating: {renter.rating}</h2>
-            <p>{pendingBookings[0].bookingFrom}</p>
-            <p>{pendingBookings[0].bookingTo}</p>
+          <div className="flex-column">
+            <div className="request-review__txt">
+              <h2>{renter.user.firstName}</h2>
+              <h3>Rating: {renter.rating}</h3>
+              <br/>
+              <p>{pendingBookings[0].bookingFrom}</p>
+              <p>{pendingBookings[0].bookingTo}</p>
+            </div>
+            <div className="btn-container">             
+              <button className="btn-approve semibold" onClick={approveRequest}>Approve</button>
+              <button className="btn-reject semibold" onClick={rejectRequest}>Reject</button> 
+            </div>
           </div>
-          <button onClick={approveRequest}>Approve</button>
-          <button onClick={rejectRequest}>Reject</button>
         </article>
       </Modal>}
     </>

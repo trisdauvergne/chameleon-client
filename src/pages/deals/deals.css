@@ -12,4 +12,17 @@
   margin: 0 1rem;
   justify-content: space-between;
   margin-bottom: 1rem;
+  align-items: center;
+}
+.actions-txt {
+  font-weight: 400;
+}
+
+.actions-icon {
+  color:  #FF9A00;
+  font-size: 14px;
+}
+
+.hidden {
+  display: none;
 }

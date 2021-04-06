@@ -29,11 +29,11 @@ const User = ({match}) => {
     return (
       <>
         <article className="user-info">
-          <button onClick={goBack}>Go back</button>
+          <button className="btn-close btn-back-user" onClick={goBack}><span className="material-icons-round close-icon">close</span></button>
           <h2 className="user-info__name">{userInfo.user.firstName} {userInfo.user.lastName}</h2>
           <div className="flex-wrapper">
             <section className="user-info__img">
-              <img src="https://i.pravatar.cc/150"/>
+              <img src={`${host}${userInfo.user.picture}`}/>
             </section>
             <section className="user-info__info">
               <h3>Rating: {typeof userInfo.rating === 'number' && <span class="material-icons-round user-info__star">star</span>}{userInfo.rating}</h3>
