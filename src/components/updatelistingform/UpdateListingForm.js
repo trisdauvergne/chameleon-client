@@ -8,6 +8,12 @@ const UpdateListingForm = ({listingId}) => {
     const [listing, setListing] = useState(null);
     let history = useHistory();
 
+    const showPreview = (event) => {
+        const output = document.getElementById('preview-update');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.onload = () => URL.revokeObjectURL(output.src);
+    }
+
     const getListing = async () => {
       const result = await fetch(`${host}/listings/${listingId}`);
       const listingData = await result.json();
@@ -48,18 +54,18 @@ const UpdateListingForm = ({listingId}) => {
             <input type="hidden" value={ownerId} name="ownerId" />
             <input type="hidden" value={listing.pictures[0]} name="currentimage"></input>
             <label className="semibold">
-                Title<br/>
+                Listing title<br/>
                 <input className="input-field" type="text" name="title" placeholder="title" required value={listing.title} onChange={(e) => setListing({...listing, title: e.target.value})}/>
                 <br/>
             </label>
             <label className="semibold">
-                Description
+                Item description
                 <br/>
                 <input className="input-field" type="text" name="description" placeholder="description" required value={listing.description} onChange={(e) => setListing({...listing, description: e.target.value})}/>
                 <br/>
             </label>
             <label className="semibold">
-                Price
+                Price per day
                 <br/>
                 <input className="input-field" type="number" name="price" min="1" max="10000" placeholder="price (SEK)"  value={listing.attributes.price} onChange={(e) => setListing({...listing, attributes: {...listing.attributes, price: e.target.value}})} required/>
                 <br/>
@@ -120,15 +126,18 @@ const UpdateListingForm = ({listingId}) => {
                 </select>
                 <br/>
             </label>
+            <div className="form-update__preview">
+                <img id="preview-update" src={`${host}/uploads/${listing.pictures[0]}`}/>
+                <p>No image</p>
+            </div>
             <label className="semibold input-img">
                 Upload image <span className="material-icons-round icon-file-upload">file_upload</span>
                 <br/>
-                <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg" required/>
+                <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg" onChange={(e) => showPreview(e)} required/>
             </label>
-                <br/>
-                <button className="btn-submit semibold" type="submit" >Update Listing</button>
-                <button className="btn-delete semibold" onClick={deleteListing}>Delete Listing </button>
-    </form>
+            <button className="btn-submit semibold" type="submit" >Update Listing</button>
+            <button className="btn-delete semibold" onClick={deleteListing}>Delete Listing </button>
+            </form>
         </article>
     )
 }

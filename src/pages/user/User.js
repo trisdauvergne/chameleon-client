@@ -36,7 +36,7 @@ const User = ({match}) => {
               <img src={`${host}${userInfo.user.picture}`}/>
             </section>
             <section className="user-info__info">
-              <h3>Rating: {typeof userInfo.rating === 'number' && <span class="material-icons-round user-info__star">star</span>}{userInfo.rating}</h3>
+              <h3>Rating: {userInfo.rating}{typeof userInfo.rating === 'number' && <span class="material-icons-round user-info__star">star</span>}</h3>
               <p className="semibold">Location:</p>
               <p>{userInfo.user.location.area}</p>
             </section>

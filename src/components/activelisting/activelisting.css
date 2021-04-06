@@ -26,6 +26,16 @@
   margin-bottom: 0.25rem;
 }
 
+.active-listing__listing-description {
+  width: 180px;
+  height: 40px; 
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .active-listing__btn-div {
   display: flex;
   text-decoration: underline;
@@ -92,26 +102,31 @@
   margin: 0.3rem;
 }
 
-.btn-container {
-  display: flex;
-  flex-direction: column;
-  margin-top: 0.2rem;
-  align-items: center;
-}
-
 .btn-approve {
   background-color: #FF9A00;
   border-radius: 0.2rem;
-  border: 1px solid #ccc;
+  border: 1px solid black;
   padding: 0.2rem;
   width: 50px;
-  margin-bottom: 0.3rem;
+  margin-right: 0.2rem;
 }
 
 .btn-reject {
   background-color: #ccc;
   border-radius: 0.2rem;
-  border: 1px solid #ccc;
+  border: 1px solid black;
   padding: 0.2rem;
   width: 50px;
+}
+
+.request-review__img {
+  width: 100px;
+  height: 120px;
+  padding-right: 0.2rem;
+}
+
+.img-user {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

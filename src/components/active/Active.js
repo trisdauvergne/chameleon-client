@@ -22,6 +22,7 @@ const Active = () => {
     <section className="active-lisitings-container">
       <h3 className="active-listings__subheading">Your live listings on Chameleon</h3>
       {activeListings.map(listing => <ActiveListing key={listing._id} listing={listing}/>)}
+      {activeListings.length === 0 && <p className="nothing-to-show">You have no active listings on Chameleon yet.</p>}
     </section>
   )
 }

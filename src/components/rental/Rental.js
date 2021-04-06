@@ -44,7 +44,7 @@ const Rental = ({ rental }) => {
         {rental.accepted && <p className="semibold rental__status">Request Approved</p>}
         {!rental.accepted && <p className="semibold rental__status">Request Pending</p>}
         <p className="rental__owner">Rented from: <Link to={`/user/${owner.user._id}`}>{owner.user.firstName}</Link></p>
-        {rental.accepted && <button onClick={() => setModalOpen(true)} >
+        {rental.accepted && <button className="rental__contact-btn" onClick={() => setModalOpen(true)} >
           Contact {owner.user.firstName}
         </button>}
         <p className="rental__date">Rental start: {rental.bookingFrom}</p>

@@ -1,6 +1,6 @@
 .completed {
   display: flex;
-  align-items: center;
+  align-items: top;
   margin-bottom: 0.5rem;
 }
 
@@ -14,6 +14,7 @@
 
 .completed__txt {
   margin-right: 0.5rem;
+  width: 200px;
 }
 
 .completed__title {
@@ -25,10 +26,23 @@
 }
 
 .completed__review-btn {
+  margin-top: 1rem;
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
   border-radius: 0.6rem;
-  border: 1px solid black;
-  padding: 1px 4px;
+  border: 0px solid black;
+  padding: 0.1rem 0.5rem;
   margin-bottom: 0.25rem;
+  background-color: #FF9A00;
+}
+.review-open {
+  font-style: italic;
+}
+.review-close{
+  font-style: italic;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

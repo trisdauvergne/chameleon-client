@@ -9,6 +9,7 @@ const Feed = () => {
     const [listingsFiltered, setListingsFiltered] = useState([]);
     const [filters, setFilters] = useState([]);
     const [filterVisible, setFilterVisible] = useState(false);
+    const [bookingDates, setBookingDates] = useState([]);
 
     const getListings = async () => {
         try {
@@ -44,7 +45,7 @@ const Feed = () => {
   return (
     <div className="filter">
       <div className="filter__btn-div">
-        <button className="filter__btn" onClick={() => setFilterVisible(!filterVisible)}>Filter<span class="material-icons-round">filter_list</span></button>
+        <button className="filter__btn" onClick={() => setFilterVisible(!filterVisible)}>Filter<span className="material-icons-round">filter_list</span></button>
       </div>
       {filterVisible && <Filter changeFilter={changeFilter} resetFilters={() => setFilters([])} />}
       <div className="listing">

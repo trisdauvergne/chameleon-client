@@ -20,8 +20,9 @@ const Ongoing = () => {
 
   return (
       <section className="live-deals-container">
-        <h3 className="live-deals__subheading">Other people's items</h3>
+        <h3 className="live-deals__subheading">Items you are renting</h3>
         {rentals.map(rental => <Rental key={rental._id} rental={rental} />)}
+        {rentals.length === 0 && <p className="nothing-to-show">You have no booked items at the moment.</p>}
       </section>
   )
 }

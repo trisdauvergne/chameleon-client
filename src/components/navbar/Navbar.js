@@ -59,11 +59,6 @@ const Navbar = () => {
           <li className="navbar-txt semibold">Account</li>
           </div>
         </Link>
-        <Link to="/login" style={{ textDecoration: 'none' }}>
-        <div className="link-container">
-          <li className="navbar-txt semibold">L</li>
-          </div>
-        </Link>
       </ul>
     </div>
   );

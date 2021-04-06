@@ -2,12 +2,46 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: 8rem;
+    background-image: url('https://images.unsplash.com/photo-1527519124254-9dafd8b3533b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80');
+    /* filter: grayscale(100%); */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.login-header-div {
+    margin: 4rem 2rem 0 2rem;
+    backdrop-filter: blur(2px);
+}
+
+.login-header__intro {
+    text-align: center;
+    color: white;
+    margin-bottom: 1rem;
+    /* background-color: white;
+    border: 1px solid black; */
+}
+
+.subheader-login {
+    text-align: center;
+    color: white;
+    /* margin-top: 1rem; */
+}
+
+.login-header__p {
+    color: white;
+    font-size: 14px;
+}
+
+.login-header__p--btm {
+    margin-bottom: 1rem;
 }
 
 .form-login {
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .subheader-login{
@@ -18,9 +52,9 @@
 .btn-create-account {
     background-color: #ccc;
     border-radius: 0.6rem;
-    border: 1px solid #ccc;
-    padding-top: 0.2rem;
-    padding-bottom: 0.2rem;
+    border: 1px solid black;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
     width: 150px;
     align-self: center;
     margin-top: 0.5rem;

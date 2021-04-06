@@ -5,13 +5,28 @@
   flex-direction: column;
 }
 
-.account-info > h2 {
+/* .account-info > h2 {
   text-align: center;
+} */
+
+.account-info__header {
+  display: flex;
+  justify-content: center;
   margin-bottom: 1rem;
 }
 
-.account-info__account {
-  margin-top: 1rem;
+.account-info__header-txt,
+.account-info__logout {
+  margin: 0 0.5rem;
+}
+
+.account-info__logout {
+  margin: 0 0.5rem;
+  border-radius: 0.6rem;
+  border: none;
+  padding: 0.2rem 0.4rem;
+  font-size: 12px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .account-info__edit {
@@ -19,18 +34,20 @@
   background-color: transparent;
   border: none;
   margin-top: 1rem;
+  font-size: 0.7rem;
+  text-decoration: underline;
 }
 
 .account-info__edit > span {
-  font-size: 1rem;
+  font-size: 0.85rem;
   margin-left: 0.2rem;
   position: relative;
   top: 0.2rem;
 }
 
 .account-info__img {
-  width: 125px;
-  height: 125px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -46,11 +63,7 @@
 }
 
 .account-info__personal > h3 {
-  line-height: 1.2rem;
-}
-
-.account-info__personal > h3:last-of-type {
-  /* margin-bottom: 0.5rem; */
+  line-height: 0.1rem;
 }
 
 .account-info__star {
@@ -63,5 +76,10 @@
 
 .flex-wrapper {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.flex-wrapper__left > p {
+  text-align: center;
 }

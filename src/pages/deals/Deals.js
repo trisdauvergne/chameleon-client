@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route, useRouteMatch, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, useRouteMatch, NavLink, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Active from '../../components/active/Active';
 import Ongoing from '../../components/ongoing/Ongoing';
@@ -40,14 +40,29 @@ const Deals = () => {
       <h2 className="active-deals__header">Deals</h2>
       <div className="active-deals__tabs">
         <p>
-          <Link to={`${url}`} className={`${incomingRequests.length !== 0 ? 'actions-txt' : ''}`}>Active Listings</Link>
+          <NavLink to={`${url}`} exact className="link-deals"
+           activeStyle={{
+            background:"black",
+            color: "white",
+            textDecoration:"none",
+          }}>Your Listings</NavLink>
           <span className={`material-icons-round ${incomingRequests.length !== 0 ? 'actions-icon' : 'hidden'}`}>fiber_manual_record</span>
         </p>
         <p>
-          <Link to={`${url}/ongoing`}>Live Deals</Link>
+          <NavLink to={`${url}/ongoing`}
+          activeStyle={{
+            background:"black",
+            color: "white",
+            textDecoration:"none",
+          }}>Rented Items</NavLink>
         </p>
         <p>
-          <Link to={`${url}/completed`} className={`${completedBookings.length !== 0 ? 'actions-txt' : ''}`}>Completed</Link>
+          <NavLink to={`${url}/completed`}
+            activeStyle={{
+              background:"black",
+              color: "white",
+              textDecoration:"none",
+             }}>Completed</NavLink>
           <span className={`material-icons-round ${completedBookings.length !== 0 ? 'actions-icon' : 'hidden'}`}>fiber_manual_record</span>
         </p>
         </div>

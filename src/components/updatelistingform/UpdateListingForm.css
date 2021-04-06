@@ -21,6 +21,32 @@
     flex-direction: column;
 }
 
+.form-update__preview {
+    width: 100px;
+    height: 100px;
+    border: 1px solid rgb(150, 150, 150);
+    position: relative;
+    align-self: center;
+    margin-bottom: 0.4rem;
+    margin-top: 0.4rem
+}
+
+.form-update__preview > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.form-update__preview > p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    text-align: center;
+    z-index: -1;
+}
+
 .input-field,
 .input-select {
     margin-bottom: 0.4rem;
@@ -54,9 +80,8 @@ input[type="file"] {
 .btn-delete {
     background-color: #ccc;
     border-radius: 0.6rem;
-    border: 1px solid #ccc;
-    padding-top: 0.2rem;
-    padding-bottom: 0.2rem;
+    border: 0px solid #ccc;
+    padding: 0.2rem 0;
     width: 150px;
     align-self: center;
     margin-top: 0.5rem;
@@ -65,10 +90,11 @@ input[type="file"] {
 .btn-submit {
     background-color: #FF9A00;
     border-radius: 0.6rem;
-    border: 1px solid #ccc;
+    border: 0px solid black;
     font-size: 12px;
     font-family: 'Poppins', sans-serif;
     width: 150px;
+    padding: 0.2rem 0;
     align-self: center;
 }
 

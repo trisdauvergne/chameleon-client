@@ -6,6 +6,12 @@ const CreateListing = () => {
     const ownerId = document.cookie.split('=')[1];
     let history = useHistory();
 
+    const showPreview = (event) => {
+        const output = document.getElementById('preview');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.onload = () => URL.revokeObjectURL(output.src);
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const form = document.getElementById('listingForm');
@@ -104,13 +110,16 @@ const CreateListing = () => {
                 </select>
                 <br/>
             </label>
+            <div className="form-create-listing__preview">
+                <img id="preview"/>
+                <p>No image</p>
+            </div>
             <label className="semibold input-img">
                 Upload image <span className="material-icons-round icon-file-upload">file_upload</span>
                 <br/>
-                <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg" required/>
+                <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg" onChange={(e) => showPreview(e)} required/>
             </label>
-            <br/>
-        <button className="btn-submit semibold" type="submit">Add post</button>
+            <button className="btn-submit semibold" type="submit">Add post</button>
         </form>
     </article>
     );

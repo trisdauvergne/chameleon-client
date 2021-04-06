@@ -23,7 +23,7 @@
   margin: auto;
   margin-bottom: 0.5rem;
   border-radius: 0.6rem;
-  border: solid 1px black;
-  background-color: #ccc;
+  border: none;
+  /* background-color: #ccc; */
   font-family: 'Poppins', sans-serif;
 }

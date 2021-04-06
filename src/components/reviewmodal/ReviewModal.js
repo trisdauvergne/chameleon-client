@@ -58,7 +58,7 @@ const ReviewModal = ({ dealPartner, booking, setModal }) => {
               </label>
           </div>
         <textarea className="review-modal__textarea" form="review-form" name="feedback" value={review.feedback} onChange={(e) => setReview({...review, feedback: e.target.value})} placeholder={`Write about your experience with ${dealPartner.user.firstName}`} />
-        <button className="review-modal__btn" type="submit">Leave a review</button>
+        <button className="review-modal__btn" type="submit">Leave review</button>
       </form>
     </div>
   );

@@ -1,7 +1,7 @@
 .listing {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin-bottom: 1.75rem;
 }
 
 .listing__img {
@@ -18,24 +18,37 @@
   text-align: center;
 }
 
-.listing__txt--title,
-.listing__txt--username,
-.listing__txt--price {
+.margin-btm {
   margin-bottom: 0.25rem;
 }
 
 .listing__btns {
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
 }
 
-.listing__btn {
-  margin: 0 0.3rem;
+.listing__btn--request,
+.listing__btn--more {
+  margin: 0 0.5rem;
+  border-radius: 0.6rem;
+  border: none;
+  padding: 0.2rem 0.4rem;
+  font-size: 12px;
+  font-family: 'Poppins', sans-serif;
+  /* margin-top: 1rem; */
 }
 
-.listing__btn--underline {
+.listing__btn--request {
+  background-color: #FF9A00;
+}
+
+/* .listing__btn {
+  margin: 0 0.5rem;
+} */
+
+/* .listing__btn--underline {
   text-decoration: underline;
-}
+} */
 
 .listing__txt--description,
 .listing__txt--dates {

@@ -27,3 +27,14 @@
 .rental__date {
   margin-bottom: 0.5rem;
 }
+
+.rental__contact-btn {
+  margin: 0 0.5rem;
+  border-radius: 0.6rem;
+  background-color: #FF9A00;
+  border: none;
+  padding: 0.2rem 0.3rem;
+  font-size: 12px;
+  font-family: 'Poppins', sans-serif;
+  /* margin-top: 1rem; */
+}
