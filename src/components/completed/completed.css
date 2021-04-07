@@ -1,8 +1,11 @@
 .completed__heading {
   text-align: center;
   margin-bottom: 1rem;
+  order: -2;
 }
 
 .completed-listings-container {
   margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
 }

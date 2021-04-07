@@ -99,17 +99,17 @@
 
 .request-review {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
   padding: 0.2rem;  
 }
 
 .flex-column {
   display: flex;
   flex-direction: column;
-}
-
-.request-review__img {
-  margin: 0.3rem;
 }
 
 .btn-approve {
@@ -123,6 +123,10 @@
   margin-right: 0.4rem;
 }
 
+.btn-container {
+  margin-top: 0.5rem;
+}
+
 .btn-reject {
   background-color: #efefef;
   font-family: 'Poppins', sans-serif;
@@ -131,13 +135,19 @@
   border: none;
   padding: 0.2rem 0.4rem;
   width: 75px;
-  margin-top: 0.5rem;
+  /* margin-top: 0.5rem; */
 }
 
 .request-review__img {
-  width: 100px;
-  height: 100px;
-  padding-right: 0.2rem;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 0.5rem;
+}
+
+.request-review__img > img {
+  object-fit: cover;
 }
 
 .img-user {
@@ -159,4 +169,12 @@
   flex-direction: column;
   align-items: center;
   padding-top: 0.2rem;
+}
+
+.btn-container {
+  display: flex;
+}
+
+.flex {
+  display: flex;
 }

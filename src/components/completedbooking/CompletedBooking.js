@@ -56,7 +56,7 @@ const CompletedBooking = ({ booking }) => {
   }
   return (
     <>
-      <article className="completed">
+      <article className={`completed ${(userId === listing.ownerId && booking.renterHasBeenReviewed === false) || (userId !== listing.ownerId && booking.ownerHasBeenReviewed === false) ? 'completed--pending' : ''}`}>
         <img className="completed__img" src={`${host}/uploads/${listing.pictures[0]}`} />
         <div className="completed__txt">
           <h3 className="completed__title">{listing.title}</h3>

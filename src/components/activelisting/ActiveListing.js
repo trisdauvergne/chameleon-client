@@ -104,24 +104,25 @@ const ActiveListing = ({ listing }) => {
       </div>
     </article>
     {renter !== null && 
-        <Modal open={modalOpen} onClose={()=> setModalOpen(false)}>
+      <Modal open={modalOpen} onClose={()=> setModalOpen(false)}>
         <article className="request-review">
-          <div className="request-review__img">
-            <img src={`${host}${renter.user.picture}`} className="img-user"/>
+          <div className="flex">
+            <div className="request-review__img">
+              <img src={`${host}${renter.user.picture}`} className="img-user"/>
+            </div>
+            <div className="flex-column">
+              <div className="request-review__txt">
+                <h2>{renter.user.firstName}</h2>
+                <h3>Rating: {renter.rating}<span class="orange-star material-icons-round">star_rate</span></h3>
+                <p>{pendingBookings[0].bookingFrom}</p>
+                <p>{pendingBookings[0].bookingTo}</p>
+                <br/>
+              </div>
+            </div>
           </div>
-          <div className="flex-column">
-            <div className="request-review__txt">
-              <h2>{renter.user.firstName}</h2>
-              <h3>Rating: {renter.rating}</h3>
-              <p>{pendingBookings[0].bookingFrom}</p>
-              <p>{pendingBookings[0].bookingTo}</p>
-              <br/>
-            </div>
-            <div className="btn-container">             
-              <button className="btn-approve" onClick={approveRequest}>Approve</button>
-              <br></br>
-              <button className="btn-reject" onClick={rejectRequest}>Reject</button> 
-            </div>
+          <div className="btn-container">             
+            <button className="btn-approve" onClick={approveRequest}>Approve</button>
+            <button className="btn-reject" onClick={rejectRequest}>Reject</button> 
           </div>
         </article>
       </Modal>}

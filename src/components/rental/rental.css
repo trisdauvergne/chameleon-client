@@ -3,7 +3,7 @@
   margin-bottom: 0.5rem;
   /* align-items: center; */
   align-items: flex-start;
-  margin: auto;
+  margin: 0 auto 1rem auto;
 }
 
 .rental__img {

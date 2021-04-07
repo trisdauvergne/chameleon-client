@@ -52,7 +52,7 @@
 
 .listing__txt--description,
 .listing__txt--dates {
-  margin: 0.5rem 1rem;
+  margin: 0.5rem 2rem;
 }
 
 .orange-star {
@@ -61,4 +61,5 @@
   color: #FF9A00;
   position: relative;
   top: 3px;
+  z-index: -1;
 }
