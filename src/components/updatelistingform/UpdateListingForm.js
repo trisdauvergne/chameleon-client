@@ -61,7 +61,7 @@ const UpdateListingForm = ({listingId}) => {
             <label className="semibold">
                 Item description
                 <br/>
-                <input className="input-field" type="text" name="description" placeholder="description" required value={listing.description} onChange={(e) => setListing({...listing, description: e.target.value})}/>
+                <textArea className="input-field" type="text" name="description" placeholder="description" onChange={(e) => setListing({...listing, description: e.target.value})} required>{listing.description}</textArea>
                 <br/>
             </label>
             <label className="semibold">

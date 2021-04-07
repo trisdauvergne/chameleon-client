@@ -31,6 +31,7 @@ const AccountInfo = () => {
           <section className="account-info__img">
             <img src={`${host}${userInfo.user.picture}`}/>
           </section>
+          <br/>
           <p className="semibold">Rating: {userInfo.rating}{typeof userInfo.rating === 'number' && <span class="material-icons-round account-info__star">star</span>}</p>
         </div>
         <section className="account-info__personal">
@@ -43,8 +44,8 @@ const AccountInfo = () => {
           <p>{userInfo.user.username}</p>
           <p className="semibold">Email:</p>
           <p>{userInfo.user.email}</p>
-          <button className="account-info__edit">Edit Details<span class="material-icons-round">edit</span></button>
-          <button className="account-info__logout">Log out</button>
+          <button className="account-info__edit semibold">Edit Details<span className="material-icons-round">edit</span></button>
+          <button className="account-info__logout semibold">Log out<span className="material-icons-round icon-logout">logout</span></button>
         </section>
       </div>
     </article>

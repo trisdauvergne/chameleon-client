@@ -5,6 +5,7 @@ import './reviewfeed.css';
 
 const ReviewFeed = ({userId}) => {
     const [reviews, setReviews] = useState(null);
+    const [username, setUsername] = useState(null);
 
     const getReviews = async () => {
         const data = await fetch(`${host}/reviews/${userId}`);
@@ -12,18 +13,25 @@ const ReviewFeed = ({userId}) => {
         setReviews(reviewData.reverse());
     }
 
+    const getUser = async () => {
+        const data = await fetch(`${host}/users/${userId}`);
+        const userData = await data.json();
+        setUsername(userData.user);
+    }
+
     useEffect(() => {
         getReviews();
+        getUser();
     }, []);
 
-    if (!reviews) {
+    if (!reviews || !username) {
         return null;
     }
 
     return (
         <article className="review-feed">
-            <h2 className="review-feed__heading">Recieved reviews</h2>
-            {reviews.length === 0 && <h3>No reviews recieved</h3>}
+            <h3 className="review-feed__heading">{username.firstName}'s reviews</h3>
+            {reviews.length === 0 && <p className="semibold">{username.firstName} has no reviews yet</p>}
             {reviews.map(review => <Review key={review._id} review={review}/>)}
         </article>
     )

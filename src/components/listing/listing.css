@@ -55,7 +55,10 @@
   margin: 0.5rem 1rem;
 }
 
-.black-star {
-  font-size: 1rem;
+.orange-star {
+  font-size: 1.2rem;
   align-items: baseline;
+  color: #FF9A00;
+  position: relative;
+  top: 3px;
 }

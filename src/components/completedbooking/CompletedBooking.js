@@ -20,9 +20,10 @@ const CompletedBooking = ({ booking }) => {
   };
 
   const getReview = async () => {
-    const data = await fetch(`${host}/reviews/${dealPartner.user._id}`);
+    const data = await fetch(`${host}/reviews/booking/${booking._id}`);
     const reviewData = await data.json();
-    setReview(reviewData);
+    const filteredReview = reviewData.filter(review => review.authorId === userId);
+    setReview(filteredReview);
   }
 
   const getDealPartner = async () => {
@@ -64,10 +65,9 @@ const CompletedBooking = ({ booking }) => {
           {userId !== listing.ownerId && <p className="completed__p">You rented this item from <Link to={`/user/${dealPartner.user._id}`}>{dealPartner.user.firstName}</Link></p>}
           {userId !== listing.ownerId && booking.ownerHasBeenReviewed === false && <button className="completed__review-btn" onClick={() => setModalOpen(true)}>Leave {dealPartner.user.firstName} a review</button>}
           {review.length !== 0 && <div> 
-            <p>You rated {review[0].rating} stars on {review[0].date}</p>
+            <p className="completed__review-stars">You rated {review[0].rating} stars on {review[0].date}</p>
             {review[0].feedback !== '' && <p onClick={() => setOpenReview(!openReview)} className={`${openReview ? 'review-open' : 'review-close'}`}>"{review[0].feedback}"</p>}
             </div>
-
           }
         </div>
       </article>

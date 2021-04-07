@@ -93,9 +93,9 @@ const ActiveListing = ({ listing }) => {
         <p className="active-listing__listing-price semibold">{listing.attributes.price} SEK per day</p>
         <div className="active-listing__btn-div">
           <Link to={`/updatelisting/${listing._id}`}>
-            <p className="semibold active-listing__btn active-listing__btn--update-btn">Update</p>
+            <p className="semibold active-listing__btn active-listing__btn--update-btn">Update<span className="material-icons-round">edit</span></p>
           </Link>
-          <p className="semibold active-listing__btn active-listing__btn--delete-btn" onClick={deleteListing}>Delete</p>
+          <p className="semibold active-listing__btn active-listing__btn--delete-btn" onClick={deleteListing}>Delete<span class="material-icons-round">delete</span></p>
         </div>
         <div>
           {acceptedBookings.length > 0 && <button className="active-listing__btn active-listing__btn--dates-btn" onClick={() => setBookingsVisible(true)}>View pre-booked dates</button>}
@@ -118,23 +118,26 @@ const ActiveListing = ({ listing }) => {
               <br/>
             </div>
             <div className="btn-container">             
-              <button className="btn-approve semibold" onClick={approveRequest}>Approve</button>
-              <button className="btn-reject semibold" onClick={rejectRequest}>Reject</button> 
+              <button className="btn-approve" onClick={approveRequest}>Approve</button>
+              <br></br>
+              <button className="btn-reject" onClick={rejectRequest}>Reject</button> 
             </div>
           </div>
         </article>
       </Modal>}
       <Modal open={bookingsVisible} onClose={() => setBookingsVisible(false)}>
-        {<ul className="active-listing__acceptedbookings-ul">
-          {acceptedBookings.map((listing, index) =>
-            <>
-              <li className="active-listing__acceptedbooking-li"key={listing._id}>{currentRenters.length !== 0 &&
-              <p className="active-listing__acceptedbooking-p">Booked by: <Link to={`/user/${listing.renterId}`}>{currentRenters[index].user.firstName}</Link></p>}
-              <p className="active-listing__acceptedbooking-p">Rented from: {listing.bookingFrom}</p>
-              <p className="active-listing__acceptedbooking-p">Rented to: {listing.bookingTo}</p>
-              <button className="active-listing__return-btn" onClick={() =>itemReturned(listing._id)}>Item returned</button></li>
-            </>)}
-        </ul>}
+        <div className="flex-center">
+          <ul className="active-listing__acceptedbookings-ul">
+            {acceptedBookings.map((listing, index) =>
+              <li className="active-listing__acceptedbooking-li"key={listing._id}>
+                {currentRenters.length !== 0 &&
+                <p className="active-listing__acceptedbooking-p">Booked by: <Link to={`/user/${listing.renterId}`}>{currentRenters[index].user.firstName}</Link></p>}
+                <p className="active-listing__acceptedbooking-p">Rented from: {listing.bookingFrom}</p>
+                <p className="active-listing__acceptedbooking-p">Rented to: {listing.bookingTo}</p>
+                <button className="active-listing__return-btn" onClick={() =>itemReturned(listing._id)}>Mark as returned</button>
+              </li>)}
+          </ul>
+        </div>
       </Modal>
     </>
   )

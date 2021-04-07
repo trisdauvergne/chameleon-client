@@ -20,25 +20,19 @@
   margin: 0 0.5rem;
 }
 
+.account-info__edit,
 .account-info__logout {
-  margin: 0 0.5rem;
-  border-radius: 0.6rem;
-  border: none;
-  padding: 0.2rem 0.4rem;
-  font-size: 12px;
-  font-family: 'Poppins', sans-serif;
-}
-
-.account-info__edit {
   font-family: 'Poppins', sans-serif;
   background-color: transparent;
   border: none;
   margin-top: 1rem;
   font-size: 0.7rem;
   text-decoration: underline;
+  font-size: 12px;
 }
 
-.account-info__edit > span {
+.account-info__edit > span,
+.account-info__logout > span {
   font-size: 0.85rem;
   margin-left: 0.2rem;
   position: relative;

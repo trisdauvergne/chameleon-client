@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import './Login.css'
 
-const Login = () => {
+const Login = ({setHasCookie}) => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -25,7 +25,7 @@ const Login = () => {
 
         if (response.status === 204) {
             setLoggedIn(true);
-            return;
+            setHasCookie(true);
         }
 
         if (response.status === 401) {
@@ -61,7 +61,7 @@ const Login = () => {
                         <br/>
                         <br/>
                     </label>
-                    <button className="btn-submit semibold" type="submit">Login</button>
+                    <button className="btn-login semibold" type="submit">Login</button>
                     <button className="btn-create-account semibold"> Create account </button>
                 </form>
                 {badUsername && <h3>Please enter a valid username</h3>}

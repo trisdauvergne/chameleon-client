@@ -11,7 +11,7 @@
 }
 
 .login-header-div {
-    margin: 4rem 2rem 0 2rem;
+    margin: 4.8rem 2rem 0 2rem;
     backdrop-filter: blur(2px);
 }
 
@@ -49,13 +49,23 @@
     margin-bottom: 1.5rem;
 }
 
-.btn-create-account {
-    background-color: #ccc;
+.btn-login {
+    background-color: #efefef;
     border-radius: 0.6rem;
-    border: 1px solid black;
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
     width: 150px;
     align-self: center;
     margin-top: 0.5rem;
+    border: none;
+}
+
+.btn-create-account {
+    font-family: 'Poppins', sans-serif;
+    background-color: transparent;
+    border: none;
+    margin-top: 0.5rem;
+    font-size: 0.7rem;
+    text-decoration: underline;
+    font-size: 12px;
 }

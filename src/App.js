@@ -18,18 +18,17 @@ function App() {
   let history = useHistory();
   
   useEffect(() => {
-    console.log(window.location);
     const regex = /userId/i;
     if (document.cookie && regex.test(document.cookie)) {
       setHasCookie(true);
     }
-  }, [])
+  }, []);
 
   if (!hasCookie) {
     return (
       <>
         <Logo />
-        <Login />
+        <Login setHasCookie={setHasCookie}/>
       </>
     )
   }
@@ -38,8 +37,6 @@ function App() {
     <>
       <Logo />
       <Switch>
-        {/* Uncommented line 42 to work on login page */}
-        <Route path="/login" component={Login} />
         <Route path="/" exact component={Home} />
         <Route path="/booking/:listingId" component={Booking} />
         <Route path="/listing" component={Listing} />
@@ -49,8 +46,6 @@ function App() {
         <Route path="/user/:userId" exact component={User}/>
       </Switch>
       <Navbar />
-      {/* <Navbar /> */}
-
     </>
   );
 }

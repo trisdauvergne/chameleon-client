@@ -1,7 +1,9 @@
 .rental {
   display: flex;
-  align-items: center;
   margin-bottom: 0.5rem;
+  /* align-items: center; */
+  align-items: flex-start;
+  margin: auto;
 }
 
 .rental__img {
@@ -12,29 +14,30 @@
   border: 1px solid black;
 }
 
+.rental__txt {
+  width: 200px;
+  margin-right: 1rem; 
+}
+
 .rental__heading {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .rental__status {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .rental__owner {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
-.rental__date {
-  margin-bottom: 0.5rem;
-}
 
 .rental__contact-btn {
-  margin: 0 0.5rem;
   border-radius: 0.6rem;
   background-color: #FF9A00;
   border: none;
   padding: 0.2rem 0.3rem;
   font-size: 12px;
   font-family: 'Poppins', sans-serif;
-  /* margin-top: 1rem; */
+  margin-bottom: 0.3rem;
 }

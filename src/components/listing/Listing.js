@@ -34,13 +34,13 @@ const Listing = ({ listing }) => {
             <img className="listing__img" src={`${host}/uploads/${listing.pictures[0]}`} alt={listing.title}/>
             <div className="listing__txt">
                 <h3 className="margin-btm">{listing.title}</h3>
-                <p className="margin-btm semibold">Rented out by <Link to={`/user/${user.user._id}`}>{user.user.firstName}</Link> ({user.rating}{user.rating !== 'No ratings yet' && <span class="black-star material-icons-round">star_rate</span>})</p>
+                <p className="margin-btm semibold">Rented out by <Link to={`/user/${user.user._id}`}>{user.user.firstName}</Link> ({user.rating}{user.rating !== 'No ratings yet' && <span class="orange-star material-icons-round">star_rate</span>})</p>
                 <p className="margin-btm">Category: {`${listing.attributes.category.charAt(0).toUpperCase() + listing.attributes.category.slice(1)}`}, Size: {`${listing.attributes.size.charAt(0).toUpperCase() + listing.attributes.size.slice(1)}`}</p>
                 <p className="margin-btm">{listing.attributes.price} SEK per day</p>
                 <div className="listing__btns">
-                    <button className="listing__btn listing__btn--more" onClick={() => setVisibleDescription(!visibleDescription)}>Read more</button>
+                    <button className="listing__btn listing__btn--more semibold" onClick={() => setVisibleDescription(!visibleDescription)}>Read more</button>
                     <Link to={`/booking/${listing._id}`}>
-                        <button className="listing__btn listing__btn--request">Request to rent</button>
+                        <button className="listing__btn listing__btn--request semibold">Request to rent</button>
                     </Link>
                 </div>
             </div>
