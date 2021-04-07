@@ -112,7 +112,7 @@ const ActiveListing = ({ listing }) => {
             </div>
             <div className="flex-column">
               <div className="request-review__txt">
-                <h2>{renter.user.firstName}</h2>
+              <Link to={`/user/${renter.user._id}`}><h2>{renter.user.firstName}</h2></Link> 
                 <h3>Rating: {renter.rating}<span class="orange-star material-icons-round">star_rate</span></h3>
                 <p>{pendingBookings[0].bookingFrom}</p>
                 <p>{pendingBookings[0].bookingTo}</p>
