@@ -127,18 +127,28 @@ const ActiveListing = ({ listing }) => {
         </article>
       </Modal>}
       <Modal open={bookingsVisible} onClose={() => setBookingsVisible(false)}>
-        <div className="flex-center">
           <ul className="active-listing__acceptedbookings-ul">
             {acceptedBookings.map((listing, index) =>
-              <li className="active-listing__acceptedbooking-li"key={listing._id}>
+              <li className="active-listing__acceptedbooking-li prebook-container"key={listing._id}>
                 {currentRenters.length !== 0 &&
-                <p className="active-listing__acceptedbooking-p">Booked by: <Link to={`/user/${listing.renterId}`}>{currentRenters[index].user.firstName}</Link></p>}
-                <p className="active-listing__acceptedbooking-p">Rented from: {listing.bookingFrom}</p>
-                <p className="active-listing__acceptedbooking-p">Rented to: {listing.bookingTo}</p>
-                <button className="active-listing__return-btn" onClick={() =>itemReturned(listing._id)}>Mark as returned</button>
+                <>
+                <div className="flex">
+                <div className="prebooked__img">
+                    <img src={`${host}${currentRenters[index].user.picture}`} className="img-user"/>
+                  </div>
+                  <div className="flex-column return-txt-container">
+                    <h2 className="active-listing__acceptedbooking-p"><Link to={`/user/${listing.renterId}`}>{currentRenters[index].user.firstName}</Link></h2>
+                    <p className="active-listing__acceptedbooking-p">Rented from:<br/><i>{listing.bookingFrom}</i></p>
+                    <p className="active-listing__acceptedbooking-p">Rented to: <br/><i>{listing.bookingTo}</i></p>
+                  </div>
+                </div>
+                <div className="btn-container-return">
+                  <button className="active-listing__return-btn" onClick={() =>itemReturned(listing._id)}>Mark as returned</button>
+                </div>
+                </>
+                }
               </li>)}
           </ul>
-        </div>
       </Modal>
     </>
   )
