@@ -18,6 +18,7 @@ function App() {
   let history = useHistory();
   
   useEffect(() => {
+    document.cookie = 'userId=606d785aac8d355ea377b1bc';
     const regex = /userId/i;
     if (document.cookie && regex.test(document.cookie)) {
       setHasCookie(true);
